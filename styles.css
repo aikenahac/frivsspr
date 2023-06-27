@@ -46,8 +46,8 @@ a {
   color: #e12a26;
 }
 
-/* @media (max-width: 600px) {
+@media (max-width: 600px) {
   .container {
     width: 90vw;
   }
-} */
+}
