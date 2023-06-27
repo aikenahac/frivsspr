@@ -44,6 +44,7 @@ body {
 
 a {
   color: #e12a26;
+  text-decoration: none;
 }
 
 @media (max-width: 600px) {
