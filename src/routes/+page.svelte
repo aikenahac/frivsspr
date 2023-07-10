@@ -109,11 +109,22 @@
         <br />
         <p>
           Oddaj
-          <a href="https://github.com/aikenahac/frivsspr/issues"
+          <a
+            class="text-[#e12a26]"
+            href="https://github.com/aikenahac/frivsspr/issues"
             >popravke in predloge</a
           >
         </p>
-        <p>Pripravil <a href="https://aikenahac.com">Aiken T. Ahac</a></p>
+        <p>
+          Minimalna verzija je na voljo <a class="text-[#e12a26]" href="/min"
+            >tukaj</a
+          >
+        </p>
+        <p>
+          Pripravil <a class="text-[#e12a26]" href="https://aikenahac.com"
+            >Aiken T. Ahac</a
+          >
+        </p>
         <br />
       </div>
     </div>
@@ -135,7 +146,6 @@
 
   * {
     font-family: Verdana, sans-serif;
-    color: #e3e0dc;
     margin: 0;
     padding: 0;
   }
@@ -164,11 +174,6 @@
 
   .year {
     font-size: 2rem;
-  }
-
-  a {
-    color: #e12a26;
-    text-decoration: none;
   }
 
   @media (max-width: 600px) {

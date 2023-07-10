@@ -1,10 +1,18 @@
 export interface SubjectInfo {
   name: string;
   code: string;
+  type?: SubjectType;
+}
+
+export enum SubjectType {
+  Mandatory = 'Obvezni predmet',
+  Disciplinary = 'Strokovni izbirni predmet',
+  Directionary = 'Smerni izbirni predmet',
+  Common = 'Splošni izbirni predmet',
 }
 
 export interface Subject {
   info: SubjectInfo;
-  prerequisite?: SubjectInfo;
+  prerequisites?: SubjectInfo[];
   related?: SubjectInfo[];
 }
