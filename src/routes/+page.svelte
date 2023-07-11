@@ -8,6 +8,7 @@
     semesterVI,
     semseterIII,
   } from '$lib/content';
+  import { SubjectType } from '$lib/types';
 </script>
 
 <svelte:head>
@@ -15,7 +16,7 @@
 </svelte:head>
 
 <body>
-  <div class="base">
+  <div class="flex justify-center items-center">
     <div class="container">
       <div class="content">
         <h1 class="title main-title">FRI VSŠ Predmetnik</h1>
@@ -23,6 +24,34 @@
           Ker na FRI spletni strani ni podstrani, ki bi služila kot dober
           predmetnik, je tukaj seznam vseh predmetov na FRI VSŠ izobraževanju
         </p>
+
+        <h2 class="title legend">Legenda:</h2>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="flex flex-column items-center">
+            <div class="avatar pr-2">
+              <div class="bg-base-content rounded-full w-12" />
+            </div>
+            <p>{SubjectType.Common}</p>
+          </div>
+          <div class="flex flex-column items-center">
+            <div class="avatar pr-2">
+              <div class="bg-warning rounded-full w-12" />
+            </div>
+            <p>{SubjectType.Disciplinary}</p>
+          </div>
+          <div class="flex flex-column items-center">
+            <div class="avatar pr-2">
+              <div class="bg-info rounded-full w-12" />
+            </div>
+            <p>{SubjectType.Directionary}</p>
+          </div>
+          <div class="flex flex-column items-center">
+            <div class="avatar pr-2">
+              <div class="bg-success rounded-full w-12" />
+            </div>
+            <p>{SubjectType.Common}</p>
+          </div>
+        </div>
 
         <div>
           <h2 class="title year">1. letnik</h2>
@@ -150,13 +179,6 @@
     padding: 0;
   }
 
-  .base {
-    background-color: #191a1c;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   .container {
     width: 60vw;
     min-height: 100vh;
@@ -172,7 +194,8 @@
     font-size: 3rem;
   }
 
-  .year {
+  .year,
+  .legend {
     font-size: 2rem;
   }
 

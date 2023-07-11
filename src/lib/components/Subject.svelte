@@ -1,5 +1,6 @@
 <script lang="ts">
-  import type { Subject } from '../types';
+  import type { Subject, SubjectType } from '../types';
+  import { SubjectType as SubjectTypeVar } from '../types';
 
   function higlightSubject(id: string) {
     const el = document.getElementById(id);
@@ -21,13 +22,31 @@
     }
   }
 
+  function getSubjectColor(type: SubjectType | undefined): string {
+    switch (type) {
+      case SubjectTypeVar.Disciplinary:
+        return 'text-warning';
+      case SubjectTypeVar.Directionary:
+        return 'text-info';
+      case SubjectTypeVar.Common:
+        return 'text-success';
+      case SubjectTypeVar.Mandatory:
+      default:
+        return 'text-base-content';
+    }
+  }
+
   export let subject: Subject;
 </script>
 
 <main class="pb-2">
   <div id={subject.info.code} class="collapse collapse-arrow bg-base-200">
     <input type="checkbox" />
-    <div class="collapse-title text-xl font-medium text-[#e12a26]">
+    <div
+      class="collapse-title text-xl font-medium {getSubjectColor(
+        subject.info.type,
+      )}"
+    >
       {subject.info.name}
     </div>
     <div class="collapse-content">
@@ -43,11 +62,11 @@
         <br />
         Predpogoji:
         <br />
-        <ul class="pl-8 list-disc">
+        <ul class="pl-6 list-disc">
           {#each subject.prerequisites as prerequisite}
             <li>
               <button
-                class="text-[#e12a26]"
+                class="text-[#e12a26] text-left"
                 on:click={() => higlightSubject(prerequisite.code)}
                 >{prerequisite.name}</button
               >
@@ -58,11 +77,11 @@
       {#if subject.related != null && subject.related.length > 0}
         <br />
         Smiselne povezave:
-        <ul class="pl-8 list-disc">
+        <ul class="pl-6 list-disc">
           {#each subject.related as related}
             <li>
               <button
-                class="text-[#e12a26]"
+                class="text-[#e12a26] text-left"
                 on:click={() => higlightSubject(related.code)}
                 >{related.name}</button
               >

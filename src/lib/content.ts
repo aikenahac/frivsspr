@@ -778,6 +778,13 @@ export const semesterV: Subject[] = [
       },
     ],
   },
+  {
+    info: {
+      name: 'Splošni izbirni predmet',
+      code: 'splosni-izbirni-predmeti',
+      type: SubjectType.Common,
+    },
+  },
 ];
 
 export const semesterVI: Subject[] = [
@@ -793,13 +800,6 @@ export const semesterVI: Subject[] = [
       name: 'Delovna praksa',
       code: 'delovna-praksa',
       type: SubjectType.Mandatory,
-    },
-  },
-  {
-    info: {
-      name: 'Splošni izbirni predmet',
-      code: 'splosni-izbirni-predmeti',
-      type: SubjectType.Common,
     },
   },
 ];
