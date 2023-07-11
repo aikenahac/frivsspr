@@ -195,17 +195,21 @@
           <a
             class="text-[#e12a26]"
             href="https://github.com/aikenahac/frivsspr/issues"
-            >popravke in predloge</a
+            target="_blank">popravke in predloge</a
           >
         </p>
         <p>
-          Minimalna verzija je na voljo <a class="text-[#e12a26]" href="/min"
-            >tukaj</a
+          Minimalna verzija je na voljo <a
+            class="text-[#e12a26]"
+            href="/min"
+            target="_blank">tukaj</a
           >
         </p>
         <p>
-          Pripravil <a class="text-[#e12a26]" href="https://aikenahac.com"
-            >Aiken T. Ahac</a
+          Pripravil <a
+            class="text-[#e12a26]"
+            href="https://aikenahac.com"
+            target="_blank">Aiken T. Ahac</a
           >
         </p>
         <br />

@@ -314,11 +314,15 @@
       <br />
       <p>
         Oddaj
-        <a href="https://github.com/aikenahac/frivsspr/issues"
+        <a href="https://github.com/aikenahac/frivsspr/issues" target="_blank"
           >popravke in predloge</a
         >
       </p>
-      <p>Pripravil <a href="https://aikenahac.com">Aiken T. Ahac</a></p>
+      <p>
+        Pripravil <a href="https://aikenahac.com" target="_blank"
+          >Aiken T. Ahac</a
+        >
+      </p>
       <br />
     </div>
   </div>
