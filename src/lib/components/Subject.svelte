@@ -9,6 +9,14 @@
       el.scrollIntoView({ behavior: 'smooth' });
       el.classList.remove('highlight');
       el.classList.add('highlight');
+
+      const checkboxes = el.querySelectorAll('input[type="checkbox"]');
+
+      checkboxes.forEach((c) => {
+        const cc = c as HTMLInputElement;
+
+        cc.checked = true;
+      });
     }
   }
 
