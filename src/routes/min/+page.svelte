@@ -327,13 +327,13 @@
 <style>
   @font-face {
     font-family: 'Klavila';
-    src: url('/fonts/klavika.otf') format('opentype');
+    src: url('../../lib/fonts/klavika.otf') format('opentype');
     font-weight: normal;
   }
 
   @font-face {
     font-family: 'Klavila';
-    src: url('/fonts/klavika-bold.otf') format('opentype');
+    src: url('../../lib/fonts/klavika-bold.otf') format('opentype');
     font-weight: bold;
   }
 
