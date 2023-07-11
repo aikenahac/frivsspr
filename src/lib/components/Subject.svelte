@@ -64,7 +64,18 @@
         target="_blank">Odpri predmet</a
       >
       <br />
+      {#if subject.info.type === SubjectTypeVar.Common}
+        Dodatno: <a
+          class="text-[#e12a26]"
+          href="https://www.uni-lj.si/studij/zip/">Seznam ZIP</a
+        >
+        <br />
+      {/if}
       Tip: {subject.info.type}
+      <br />
+      Kreditne točke: {subject.info.type === SubjectTypeVar.Common
+        ? 'Razno'
+        : subject.info.points}
       {#if subject.prerequisites != null && subject.prerequisites.length > 0}
         <br />
         <br />
@@ -76,7 +87,7 @@
               <button
                 class="text-[#e12a26] text-left"
                 on:click={() => higlightSubject(prerequisite.code)}
-                >{prerequisite.name}</button
+                >{prerequisite.name} ({prerequisite.points} KT)</button
               >
             </li>
           {/each}
@@ -91,7 +102,7 @@
               <button
                 class="text-[#e12a26] text-left"
                 on:click={() => higlightSubject(related.code)}
-                >{related.name}</button
+                >{related.name} ({related.points} KT)</button
               >
             </li>
           {/each}
