@@ -42,27 +42,31 @@
         <h2 class="title legend">Legenda:</h2>
         <div class="grid grid-cols-2 gap-4">
           <div class="flex flex-column items-center">
-            <div class="avatar pr-2">
+            <div class="avatar">
               <div class="bg-base-content rounded-full w-12" />
             </div>
+            <div class="divider lg:divider-horizontal" />
             <p>{SubjectType.Common}</p>
           </div>
           <div class="flex flex-column items-center">
-            <div class="avatar pr-2">
+            <div class="avatar">
               <div class="bg-warning rounded-full w-12" />
             </div>
+            <div class="divider lg:divider-horizontal" />
             <p>{SubjectType.Disciplinary}</p>
           </div>
           <div class="flex flex-column items-center">
-            <div class="avatar pr-2">
+            <div class="avatar">
               <div class="bg-info rounded-full w-12" />
             </div>
+            <div class="divider lg:divider-horizontal" />
             <p>{SubjectType.Directionary}</p>
           </div>
           <div class="flex flex-column items-center">
-            <div class="avatar pr-2">
+            <div class="avatar">
               <div class="bg-success rounded-full w-12" />
             </div>
+            <div class="divider lg:divider-horizontal" />
             <p>{SubjectType.Common}</p>
           </div>
         </div>
