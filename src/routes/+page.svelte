@@ -9,6 +9,20 @@
     semseterIII,
   } from '$lib/content';
   import { SubjectType } from '$lib/types';
+
+  function collapseSemester(semester: string) {
+    const parent = document.getElementById(semester);
+
+    if (parent) {
+      const checkboxes = parent.querySelectorAll('input[type="checkbox"]');
+
+      checkboxes.forEach((c) => {
+        const cc = c as HTMLInputElement;
+
+        cc.checked = false;
+      });
+    }
+  }
 </script>
 
 <svelte:head>
@@ -57,8 +71,14 @@
           <h2 class="title year">1. letnik</h2>
           <ul>
             <li>
-              <p class="pb-3">I. Semester</p>
-              <ul>
+              <div class="flex flex-row justify-between items-center">
+                <p>I. Semester</p>
+                <button class="btn" on:click={() => collapseSemester('first')}
+                  >Zapri vse</button
+                >
+              </div>
+              <br />
+              <ul id="first">
                 {#each semesterI as subject}
                   <li class="pb-2">
                     <Subject {subject} />
@@ -68,8 +88,14 @@
             </li>
             <br />
             <li>
-              <p class="pb-3">II. Semester</p>
-              <ul>
+              <div class="flex flex-row justify-between items-center">
+                <p>II. Semester</p>
+                <button class="btn" on:click={() => collapseSemester('second')}
+                  >Zapri vse</button
+                >
+              </div>
+              <br />
+              <ul id="second">
                 {#each semesterII as subject}
                   <li class="pb-2">
                     <Subject {subject} />
@@ -84,8 +110,14 @@
           <h2 class="title year">2. letnik</h2>
           <ul>
             <li>
-              <p class="pb-3">III. Semester</p>
-              <ul>
+              <div class="flex flex-row justify-between items-center">
+                <p>III. Semester</p>
+                <button class="btn" on:click={() => collapseSemester('third')}
+                  >Zapri vse</button
+                >
+              </div>
+              <br />
+              <ul id="third">
                 {#each semseterIII as subject}
                   <li class="pb-2">
                     <Subject {subject} />
@@ -95,8 +127,14 @@
             </li>
             <br />
             <li>
-              <p class="pb-3">IV. Semester</p>
-              <ul>
+              <div class="flex flex-row justify-between items-center">
+                <p>IV. Semester</p>
+                <button class="btn" on:click={() => collapseSemester('fourth')}
+                  >Zapri vse</button
+                >
+              </div>
+              <br />
+              <ul id="fourth">
                 {#each semesterIV as subject}
                   <li class="pb-2">
                     <Subject {subject} />
@@ -111,8 +149,14 @@
           <h2 class="title year">3. letnik</h2>
           <ul>
             <li>
-              <p class="pb-3">V. Semester</p>
-              <ul>
+              <div class="flex flex-row justify-between items-center">
+                <p>V. Semester</p>
+                <button class="btn" on:click={() => collapseSemester('fifth')}
+                  >Zapri vse</button
+                >
+              </div>
+              <br />
+              <ul id="fifth">
                 {#each semesterV as subject}
                   <li class="pb-2">
                     <Subject {subject} />
@@ -122,8 +166,14 @@
             </li>
             <br />
             <li>
-              <p class="pb-3">VI. Semester</p>
-              <ul>
+              <div class="flex flex-row justify-between items-center">
+                <p>VI. Semester</p>
+                <button class="btn" on:click={() => collapseSemester('sixth')}
+                  >Zapri vse</button
+                >
+              </div>
+              <br />
+              <ul id="sixth">
                 {#each semesterVI as subject}
                   <li class="pb-2">
                     <Subject {subject} />
