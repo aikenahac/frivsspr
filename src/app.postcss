@@ -5,3 +5,24 @@
 @tailwind utilities;
 @tailwind components;
 @tailwind utilities;
+
+.highlight {
+  animation-name: higlightSubject;
+  animation-duration: 2.5s;
+  animation-delay: 0.5s;
+}
+
+@keyframes higlightSubject {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
