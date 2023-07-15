@@ -67,7 +67,8 @@
       {#if subject.info.type === SubjectTypeVar.Common}
         Dodatno: <a
           class="text-[#e12a26]"
-          href="https://www.uni-lj.si/studij/zip/">Seznam ZIP</a
+          href="https://www.uni-lj.si/studij/zip/"
+          target="_blank">Seznam ZIP</a
         >
         <br />
       {/if}
