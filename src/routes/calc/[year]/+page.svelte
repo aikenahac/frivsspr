@@ -65,6 +65,21 @@
     }
   }
 
+  function getSelective(semester: CalculatorSubject[]): CalculatorSubject[] {
+    const selective: CalculatorSubject[] = [];
+
+    semester.forEach((s) => {
+      if (
+        s.type === SubjectType.Directionary ||
+        s.type === SubjectType.Disciplinary
+      ) {
+        selective.push(s);
+      }
+    });
+
+    return selective;
+  }
+
   loadMandatory();
 </script>
 
@@ -97,6 +112,27 @@
       />
     {/each}
   {:else if year === '3'}
+    <div class="divider">III. semester</div>
+    {#each getSelective(semesterIIISubjects) as subject}
+      <CheckableSubject
+        {subject}
+        selectSubject={() => {
+          subject.isSelected = !subject.isSelected;
+          totalPoints += subject.isSelected ? subject.points : -subject.points;
+        }}
+      />
+    {/each}
+    <div class="divider">IV. semester</div>
+    <div class="divider">(Po predhodnem dogovoru z referatom)</div>
+    {#each getSelective(semesterIVSubjects) as subject}
+      <CheckableSubject
+        {subject}
+        selectSubject={() => {
+          subject.isSelected = !subject.isSelected;
+          totalPoints += subject.isSelected ? subject.points : -subject.points;
+        }}
+      />
+    {/each}
     <div class="divider">V. semester</div>
     {#each semesterVSubjects as subject}
       <CheckableSubject
