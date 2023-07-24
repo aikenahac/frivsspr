@@ -1,5 +1,6 @@
 <script lang="ts">
   import Subject from '$lib/components/Subject.svelte';
+  import calcIcon from '$lib/assets/calc.svg';
   import {
     semesterI,
     semesterII,
@@ -32,188 +33,200 @@
 <body>
   <div class="flex justify-center items-center">
     <div class="container">
-      <div class="content">
-        <h1 class="title main-title">FRI VSŠ Predmetnik</h1>
-        <p>
-          Ker na FRI spletni strani ni podstrani, ki bi služila kot dober
-          predmetnik, je tukaj seznam vseh predmetov na FRI VSŠ izobraževanju
-        </p>
+      <h1 class="title main-title">FRI VSŠ Predmetnik</h1>
+      <p>
+        Ker na FRI spletni strani ni podstrani, ki bi služila kot dober
+        predmetnik, je tukaj seznam vseh predmetov na FRI VSŠ izobraževanju
+      </p>
 
-        <h2 class="title legend">Legenda:</h2>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="flex flex-column items-center">
-            <div class="avatar">
-              <div class="bg-base-content rounded-full w-12" />
-            </div>
-            <div class="divider lg:divider-horizontal" />
-            <p>{SubjectType.Common}</p>
+      <h2 class="title legend">Legenda:</h2>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="flex flex-column items-center">
+          <div class="avatar">
+            <div class="bg-base-content rounded-full w-12" />
           </div>
-          <div class="flex flex-column items-center">
-            <div class="avatar">
-              <div class="bg-warning rounded-full w-12" />
-            </div>
-            <div class="divider lg:divider-horizontal" />
-            <p>{SubjectType.Disciplinary}</p>
+          <div class="divider lg:divider-horizontal" />
+          <p>{SubjectType.Common}</p>
+        </div>
+        <div class="flex flex-column items-center">
+          <div class="avatar">
+            <div class="bg-warning rounded-full w-12" />
           </div>
-          <div class="flex flex-column items-center">
-            <div class="avatar">
-              <div class="bg-info rounded-full w-12" />
-            </div>
-            <div class="divider lg:divider-horizontal" />
-            <p>{SubjectType.Directionary}</p>
+          <div class="divider lg:divider-horizontal" />
+          <p>{SubjectType.Disciplinary}</p>
+        </div>
+        <div class="flex flex-column items-center">
+          <div class="avatar">
+            <div class="bg-info rounded-full w-12" />
           </div>
-          <div class="flex flex-column items-center">
-            <div class="avatar">
-              <div class="bg-success rounded-full w-12" />
-            </div>
-            <div class="divider lg:divider-horizontal" />
-            <p>{SubjectType.Common}</p>
+          <div class="divider lg:divider-horizontal" />
+          <p>{SubjectType.Directionary}</p>
+        </div>
+        <div class="flex flex-column items-center">
+          <div class="avatar">
+            <div class="bg-success rounded-full w-12" />
           </div>
+          <div class="divider lg:divider-horizontal" />
+          <p>{SubjectType.Common}</p>
         </div>
-
-        <div>
-          <h2 class="title year">1. letnik</h2>
-          <ul>
-            <li>
-              <div class="flex flex-row justify-between items-center">
-                <p>I. Semester</p>
-                <button class="btn" on:click={() => collapseSemester('first')}
-                  >Zapri vse</button
-                >
-              </div>
-              <br />
-              <ul id="first">
-                {#each semesterI as subject}
-                  <li class="pb-2">
-                    <Subject {subject} />
-                  </li>
-                {/each}
-              </ul>
-            </li>
-            <br />
-            <li>
-              <div class="flex flex-row justify-between items-center">
-                <p>II. Semester</p>
-                <button class="btn" on:click={() => collapseSemester('second')}
-                  >Zapri vse</button
-                >
-              </div>
-              <br />
-              <ul id="second">
-                {#each semesterII as subject}
-                  <li class="pb-2">
-                    <Subject {subject} />
-                  </li>
-                {/each}
-              </ul>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 class="title year">2. letnik</h2>
-          <ul>
-            <li>
-              <div class="flex flex-row justify-between items-center">
-                <p>III. Semester</p>
-                <button class="btn" on:click={() => collapseSemester('third')}
-                  >Zapri vse</button
-                >
-              </div>
-              <br />
-              <ul id="third">
-                {#each semseterIII as subject}
-                  <li class="pb-2">
-                    <Subject {subject} />
-                  </li>
-                {/each}
-              </ul>
-            </li>
-            <br />
-            <li>
-              <div class="flex flex-row justify-between items-center">
-                <p>IV. Semester</p>
-                <button class="btn" on:click={() => collapseSemester('fourth')}
-                  >Zapri vse</button
-                >
-              </div>
-              <br />
-              <ul id="fourth">
-                {#each semesterIV as subject}
-                  <li class="pb-2">
-                    <Subject {subject} />
-                  </li>
-                {/each}
-              </ul>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 class="title year">3. letnik</h2>
-          <ul>
-            <li>
-              <div class="flex flex-row justify-between items-center">
-                <p>V. Semester</p>
-                <button class="btn" on:click={() => collapseSemester('fifth')}
-                  >Zapri vse</button
-                >
-              </div>
-              <br />
-              <ul id="fifth">
-                {#each semesterV as subject}
-                  <li class="pb-2">
-                    <Subject {subject} />
-                  </li>
-                {/each}
-              </ul>
-            </li>
-            <br />
-            <li>
-              <div class="flex flex-row justify-between items-center">
-                <p>VI. Semester</p>
-                <button class="btn" on:click={() => collapseSemester('sixth')}
-                  >Zapri vse</button
-                >
-              </div>
-              <br />
-              <ul id="sixth">
-                {#each semesterVI as subject}
-                  <li class="pb-2">
-                    <Subject {subject} />
-                  </li>
-                {/each}
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <br />
-        <hr />
-        <br />
-        <p>
-          Oddaj
-          <a
-            class="text-[#e12a26]"
-            href="https://github.com/aikenahac/frivsspr/issues"
-            target="_blank">popravke in predloge</a
-          >
-        </p>
-        <p>
-          Minimalna verzija je na voljo <a
-            class="text-[#e12a26]"
-            href="/min"
-            target="_blank">tukaj</a
-          >
-        </p>
-        <p>
-          Pripravil <a
-            class="text-[#e12a26]"
-            href="https://aikenahac.com"
-            target="_blank">Aiken T. Ahac</a
-          >
-        </p>
-        <br />
       </div>
+
+      <div>
+        <h2 class="title year">1. letnik</h2>
+        <ul>
+          <li>
+            <div class="flex flex-row justify-between items-center">
+              <p>I. Semester</p>
+              <button class="btn" on:click={() => collapseSemester('first')}
+                >Zapri vse</button
+              >
+            </div>
+            <br />
+            <ul id="first">
+              {#each semesterI as subject}
+                <li class="pb-2">
+                  <Subject {subject} />
+                </li>
+              {/each}
+            </ul>
+          </li>
+          <br />
+          <li>
+            <div class="flex flex-row justify-between items-center">
+              <p>II. Semester</p>
+              <button class="btn" on:click={() => collapseSemester('second')}
+                >Zapri vse</button
+              >
+            </div>
+            <br />
+            <ul id="second">
+              {#each semesterII as subject}
+                <li class="pb-2">
+                  <Subject {subject} />
+                </li>
+              {/each}
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex flex-row justify-between items-center">
+          <h2 class="title year">2. letnik</h2>
+          <a href="/calc/2"
+            ><button class="btn"
+              >Kalkulator <img src={calcIcon} alt="Calculator icon" /></button
+            ></a
+          >
+        </div>
+        <ul>
+          <li>
+            <div class="flex flex-row justify-between items-center">
+              <p>III. Semester</p>
+              <button class="btn" on:click={() => collapseSemester('third')}
+                >Zapri vse</button
+              >
+            </div>
+            <br />
+            <ul id="third">
+              {#each semseterIII as subject}
+                <li class="pb-2">
+                  <Subject {subject} />
+                </li>
+              {/each}
+            </ul>
+          </li>
+          <br />
+          <li>
+            <div class="flex flex-row justify-between items-center">
+              <p>IV. Semester</p>
+              <button class="btn" on:click={() => collapseSemester('fourth')}
+                >Zapri vse</button
+              >
+            </div>
+            <br />
+            <ul id="fourth">
+              {#each semesterIV as subject}
+                <li class="pb-2">
+                  <Subject {subject} />
+                </li>
+              {/each}
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex flex-row justify-between items-center">
+          <h2 class="title year">3. letnik</h2>
+          <a href="/calc/3"
+            ><button class="btn"
+              >Kalkulator <img src={calcIcon} alt="Calculator icon" /></button
+            ></a
+          >
+        </div>
+        <ul>
+          <li>
+            <div class="flex flex-row justify-between items-center">
+              <p>V. Semester</p>
+              <button class="btn" on:click={() => collapseSemester('fifth')}
+                >Zapri vse</button
+              >
+            </div>
+            <br />
+            <ul id="fifth">
+              {#each semesterV as subject}
+                <li class="pb-2">
+                  <Subject {subject} />
+                </li>
+              {/each}
+            </ul>
+          </li>
+          <br />
+          <li>
+            <div class="flex flex-row justify-between items-center">
+              <p>VI. Semester</p>
+              <button class="btn" on:click={() => collapseSemester('sixth')}
+                >Zapri vse</button
+              >
+            </div>
+            <br />
+            <ul id="sixth">
+              {#each semesterVI as subject}
+                <li class="pb-2">
+                  <Subject {subject} />
+                </li>
+              {/each}
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <br />
+      <hr />
+      <br />
+      <p>
+        Oddaj
+        <a
+          class="text-[#e12a26]"
+          href="https://github.com/aikenahac/frivsspr/issues"
+          target="_blank">popravke in predloge</a
+        >
+      </p>
+      <p>
+        Minimalna verzija je na voljo <a
+          class="text-[#e12a26]"
+          href="/min"
+          target="_blank">tukaj</a
+        >
+      </p>
+      <p>
+        Pripravil <a
+          class="text-[#e12a26]"
+          href="https://aikenahac.com"
+          target="_blank">Aiken T. Ahac</a
+        >
+      </p>
+      <br />
     </div>
   </div>
 </body>

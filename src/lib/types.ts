@@ -17,3 +17,11 @@ export interface Subject {
   prerequisites?: SubjectInfo[];
   related?: SubjectInfo[];
 }
+
+export interface CalculatorSubject {
+  name: string;
+  code: string;
+  points: number;
+  type: SubjectType;
+  isSelected: boolean;
+}
