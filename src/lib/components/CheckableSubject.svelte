@@ -53,8 +53,6 @@
           <input
             type="number"
             placeholder="6"
-            min=""
-            max=""
             name="ktinput"
             class="input input-bordered input-primary w-32 max-w-xs"
             bind:value={zipScore}
