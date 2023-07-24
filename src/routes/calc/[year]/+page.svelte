@@ -77,7 +77,7 @@
   <div class="flex justify-center items-center">
     <div class="container">
       <h1 class="title main-title">Kalkulator KT ({year}. letnik)</h1>
-      <p class="total-points">Skupno: {totalPoints} KT</p>
+      <p class="total-points">Skupno: {totalPoints}/60 KT</p>
 
       <br />
       {#if year === '2'}
