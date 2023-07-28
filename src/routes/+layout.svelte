@@ -9,7 +9,7 @@
 <main>
   <div class="navbar bg-base-100">
     <div class="flex-1">
-      <p class="btn btn-ghost normal-case text-xl">FRIVSŠPr</p>
+      <a class="btn btn-ghost normal-case text-xl" href="/">FRIVSŠPr</a>
     </div>
     <div class="flex-none">
       <ul class="menu menu-horizontal px-1">
@@ -23,5 +23,35 @@
       </ul>
     </div>
   </div>
-  <slot />
+  <div class="flex justify-center items-center">
+    <div class="max-[600px]:w-[90vw] w-[60vw] min-h-screen">
+      <slot />
+      <br />
+      <hr />
+      <br />
+      <p>
+        Oddaj
+        <a
+          class="text-info"
+          href="https://github.com/aikenahac/frivsspr/issues"
+          target="_blank">popravke in predloge</a
+        >
+      </p>
+      <p>
+        Minimalna verzija je na voljo <a
+          class="text-info"
+          href="/min"
+          target="_blank">tukaj</a
+        >
+      </p>
+      <p>
+        Pripravil <a
+          class="text-info"
+          href="https://aikenahac.com"
+          target="_blank">Aiken T. Ahac</a
+        >
+      </p>
+      <br />
+    </div>
+  </div>
 </main>

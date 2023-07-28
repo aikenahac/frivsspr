@@ -5,14 +5,16 @@
 <div class="base">
   <div class="container">
     <div class="content">
-      <h1 class="title main-title">FRI VSŠ Predmetnik</h1>
+      <h1 class="font-['Klavila'] font-bold py-5 text-5xl">
+        FRI VSŠ Predmetnik
+      </h1>
       <p>
         Ker na FRI spletni strani ni podstrani, ki bi služila kot dober
         predmetnik, je tukaj seznam vseh predmetov na FRI VSŠ izobraževanju
       </p>
 
       <div>
-        <h2 class="title year">1. letnik</h2>
+        <h2 class="font-['Klavila'] font-bold py-5 text-2xl">1. letnik</h2>
         <ul>
           <li>
             <p>I. Semester</p>
@@ -77,7 +79,7 @@
       </div>
 
       <div>
-        <h2 class="title year">2. letnik</h2>
+        <h2 class="font-['Klavila'] font-bold py-5 text-2xl">2. letnik</h2>
         <ul>
           <li>
             <p>III. Semester</p>
@@ -224,7 +226,7 @@
       </div>
 
       <div>
-        <h2 class="title year">3. letnik</h2>
+        <h2 class="font-['Klavila'] font-bold py-5 text-2xl">3. letnik</h2>
         <ul>
           <li>
             <p>V. Semester</p>
@@ -309,73 +311,13 @@
           </li>
         </ul>
       </div>
-      <br />
-      <hr />
-      <br />
-      <p>
-        Oddaj
-        <a href="https://github.com/aikenahac/frivsspr/issues" target="_blank"
-          >popravke in predloge</a
-        >
-      </p>
-      <p>
-        Pripravil <a href="https://aikenahac.com" target="_blank"
-          >Aiken T. Ahac</a
-        >
-      </p>
-      <br />
     </div>
   </div>
 </div>
 
 <style>
-  @font-face {
-    font-family: 'Klavila';
-    src: url('../../lib/fonts/klavika.otf') format('opentype');
-    font-weight: normal;
-  }
-
-  @font-face {
-    font-family: 'Klavila';
-    src: url('../../lib/fonts/klavika-bold.otf') format('opentype');
-    font-weight: bold;
-  }
-
-  * {
-    font-family: Verdana, sans-serif;
-    color: #e3e0dc;
-    margin: 0;
-    padding: 0;
-  }
-
-  .base {
-    background-color: #191a1c;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .container {
-    width: 60vw;
-    min-height: 100vh;
-  }
-
-  .title {
-    font-family: 'Klavila';
-    font-weight: bold;
-    padding: 20px 0 20px 0;
-  }
-
-  .main-title {
-    font-size: 3rem;
-  }
-
-  .year {
-    font-size: 2rem;
-  }
-
   a {
-    color: #e12a26;
+    color: hsl(var(--in));
     text-decoration: none;
   }
 
