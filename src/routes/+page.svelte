@@ -44,7 +44,7 @@
         <div class="bg-base-content rounded-full w-12" />
       </div>
       <div class="divider lg:divider-horizontal" />
-      <p>{SubjectType.Common}</p>
+      <p>{SubjectType.Mandatory}</p>
     </div>
     <div class="flex flex-column items-center">
       <div class="avatar">
