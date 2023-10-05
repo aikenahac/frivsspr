@@ -59,14 +59,14 @@
     </div>
     <div class="collapse-content">
       Predmet: <a
-        class="text-[#e12a26]"
+        class="text-info"
         href={getSubjectLink(subject.info.code)}
         target="_blank">Odpri predmet</a
       >
       <br />
       {#if subject.info.type === SubjectTypeVar.Common}
         Dodatno: <a
-          class="text-[#e12a26]"
+          class="text-info"
           href="https://www.uni-lj.si/studij/zip/"
           target="_blank">Seznam ZIP</a
         >
@@ -86,7 +86,7 @@
           {#each subject.prerequisites as prerequisite}
             <li>
               <button
-                class="text-[#e12a26] text-left"
+                class="text-info text-left"
                 on:click={() => higlightSubject(prerequisite.code)}
                 >{prerequisite.name} ({prerequisite.points} KT)</button
               >
@@ -101,7 +101,7 @@
           {#each subject.related as related}
             <li>
               <button
-                class="text-[#e12a26] text-left"
+                class="text-info text-left"
                 on:click={() => higlightSubject(related.code)}
                 >{related.name} ({related.points} KT)</button
               >
