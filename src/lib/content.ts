@@ -278,6 +278,56 @@ export const semseterIII: Subject[] = [
   },
   {
     info: {
+      name: 'Varnost podatkov',
+      code: '63775',
+      points: 6,
+      type: SubjectType.Disciplinary,
+    },
+    related: [
+      {
+        name: 'Varnost organizacij',
+        code: '63773',
+        points: 6,
+      },
+      {
+        name: 'Varnost programov',
+        code: null,
+        points: 6,
+      },
+      {
+        name: 'Pravni vidiki varnosti',
+        code: null,
+        points: 6,
+      },
+    ],
+  },
+  {
+    info: {
+      name: 'Varnost organizacij',
+      code: '63773',
+      points: 6,
+      type: SubjectType.Disciplinary,
+    },
+    related: [
+      {
+        name: 'Varnost podatkov',
+        code: '63775',
+        points: 6,
+      },
+      {
+        name: 'Varnost programov',
+        code: null,
+        points: 6,
+      },
+      {
+        name: 'Pravni vidiki varnosti',
+        code: null,
+        points: 6,
+      },
+    ],
+  },
+  {
+    info: {
       name: 'Računalniška grafika',
       code: '63719',
       points: 6,
@@ -394,7 +444,7 @@ export const semesterIV: Subject[] = [
   },
   {
     info: {
-      name: 'Digitalno procesiranje',
+      name: 'Digitalno procesiranje signalov',
       code: '63744',
       points: 6,
       type: SubjectType.Disciplinary,
@@ -493,6 +543,56 @@ export const semesterIV: Subject[] = [
       {
         name: 'Organizacija računalnikov',
         code: '63717',
+        points: 6,
+      },
+    ],
+  },
+  {
+    info: {
+      name: 'Varnost programov',
+      code: null,
+      points: 6,
+      type: SubjectType.Disciplinary,
+    },
+    related: [
+      {
+        name: 'Varnost podatkov',
+        code: '63775',
+        points: 6,
+      },
+      {
+        name: 'Varnost organizacij',
+        code: '63773',
+        points: 6,
+      },
+      {
+        name: 'Pravni vidiki varnosti',
+        code: null,
+        points: 6,
+      },
+    ],
+  },
+  {
+    info: {
+      name: 'Pravni vidiki varnosti',
+      code: null,
+      points: 6,
+      type: SubjectType.Disciplinary,
+    },
+    related: [
+      {
+        name: 'Varnost podatkov',
+        code: '63775',
+        points: 6,
+      },
+      {
+        name: 'Varnost organizacij',
+        code: '63773',
+        points: 6,
+      },
+      {
+        name: 'Varnost programov',
+        code: null,
         points: 6,
       },
     ],
@@ -676,7 +776,7 @@ export const semesterV: Subject[] = [
         points: 6,
       },
       {
-        name: 'Digitalno procesiranje',
+        name: 'Digitalno procesiranje signalov',
         code: '63744',
         points: 6,
       },
@@ -805,6 +905,14 @@ export const semesterV: Subject[] = [
     info: {
       name: 'Vzporedni in porazdeljeni sistemi in algoritmi',
       code: '63735',
+      points: 6,
+      type: SubjectType.Disciplinary,
+    },
+  },
+  {
+    info: {
+      name: 'Programiranje energijsko omejenih naprav',
+      code: '63776',
       points: 6,
       type: SubjectType.Disciplinary,
     },

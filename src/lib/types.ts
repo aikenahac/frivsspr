@@ -1,6 +1,6 @@
 export interface SubjectInfo {
   name: string;
-  code: string;
+  code: string | null;
   points?: number;
   type?: SubjectType;
 }

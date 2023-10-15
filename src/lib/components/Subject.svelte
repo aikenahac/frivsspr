@@ -2,7 +2,9 @@
   import type { Subject, SubjectType } from '../types';
   import { SubjectType as SubjectTypeVar } from '../types';
 
-  function higlightSubject(id: string) {
+  function higlightSubject(id: string | null) {
+    if (!id) return;
+
     const el = document.getElementById(id);
 
     if (el) {
@@ -20,8 +22,10 @@
     }
   }
 
-  function getSubjectLink(code: string): string {
+  function getSubjectLink(code: string | null): string {
     switch (code) {
+      case null:
+        return '/no-subject';
       case 'splosni-izbirni-predmeti':
       case 'delovna-praksa':
         return `https://www.fri.uni-lj.si/sl/${code}`;
