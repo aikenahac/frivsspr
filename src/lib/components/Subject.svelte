@@ -65,7 +65,7 @@
       Predmet: <a
         class="text-info"
         href={getSubjectLink(subject.info.code)}
-        target="_blank">Odpri predmet</a
+        target={subject.info.code ? '_blank' : ''}>Odpri predmet</a
       >
       <br />
       {#if subject.info.type === SubjectTypeVar.Common}
