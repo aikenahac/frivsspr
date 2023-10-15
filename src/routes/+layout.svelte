@@ -16,7 +16,7 @@
         <li><a href="/">Seznam</a></li>
         <li>
           <a
-            href="https://www.fri.uni-lj.si/upload/Slike/predmetniki/2021_predmetnik_vss_ri.pdf"
+            href="https://fri.uni-lj.si/upload/Slike/predmetniki/Predmetnik_RI_VSS_23_24_3.pdf"
             target="_blank">Vizualni pregled</a
           >
         </li>
