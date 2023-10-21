@@ -14,6 +14,7 @@
       type: s.info.type ?? SubjectType.Mandatory,
       points: s.info.points ?? 0,
       isSelected: false,
+      notTaught: s.info.notTaught,
     };
   });
 
@@ -24,6 +25,7 @@
       type: s.info.type ?? SubjectType.Mandatory,
       points: s.info.points ?? 0,
       isSelected: false,
+      notTaught: s.info.notTaught,
     };
   });
 
@@ -34,6 +36,7 @@
       type: s.info.type ?? SubjectType.Mandatory,
       points: s.info.points ?? 0,
       isSelected: false,
+      notTaught: s.info.notTaught,
     };
   });
   const semesterVISubjects: CalculatorSubject[] = semesterVI.map((s) => {
@@ -43,6 +46,7 @@
       type: s.info.type ?? SubjectType.Mandatory,
       points: s.info.points ?? 0,
       isSelected: false,
+      notTaught: s.info.notTaught,
     };
   });
 

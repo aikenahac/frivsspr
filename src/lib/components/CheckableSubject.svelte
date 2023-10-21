@@ -19,12 +19,12 @@
     class="flex justify-between items-center cursor-pointer pb-1"
     role="button"
     tabindex="0"
-    on:keypress={subject.type !== SubjectType.Mandatory
+    on:keypress={subject.type !== SubjectType.Mandatory && !subject.notTaught
       ? () => {
           selectSubject(subject);
         }
       : null}
-    on:click={subject.type !== SubjectType.Mandatory
+    on:click={subject.type !== SubjectType.Mandatory && !subject.notTaught
       ? () => {
           selectSubject(subject);
         }
@@ -35,9 +35,12 @@
         type="checkbox"
         class="checkbox"
         bind:checked={subject.isSelected}
-        disabled={subject.type === SubjectType.Mandatory ? true : false}
+        disabled={subject.type === SubjectType.Mandatory || subject.notTaught}
       />
-      <p class="ml-2">{subject.name}</p>
+      <p class="ml-2">
+        {subject.name}
+        {subject.notTaught ? '(Se ne izvaja)' : ''}
+      </p>
     </div>
     <p class="mr-2">
       {subject.type === SubjectType.Common ? zipScore : subject.points} KT
