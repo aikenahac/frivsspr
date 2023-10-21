@@ -59,7 +59,12 @@
         subject.info.type,
       )}"
     >
-      {subject.info.name}
+      <div class="flex flex-row items-center justify-items-center">
+        {subject.info.name}
+        {#if subject.info.notTaught}
+          <div class="badge badge-error ml-4">Se ne izvaja</div>
+        {/if}
+      </div>
     </div>
     <div class="collapse-content">
       Predmet: <a

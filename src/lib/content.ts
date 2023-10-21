@@ -750,6 +750,7 @@ export const semesterIV: Subject[] = [
       code: '63766a',
       points: 3,
       type: SubjectType.Disciplinary,
+      notTaught: true,
     },
   },
   {

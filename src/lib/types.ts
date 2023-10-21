@@ -3,6 +3,7 @@ export interface SubjectInfo {
   code: string | null;
   points?: number;
   type?: SubjectType;
+  notTaught?: boolean;
 }
 
 export enum SubjectType {
@@ -20,8 +21,9 @@ export interface Subject {
 
 export interface CalculatorSubject {
   name: string;
-  code: string;
+  code: string | null;
   points: number;
   type: SubjectType;
   isSelected: boolean;
+  notTaught?: boolean;
 }
