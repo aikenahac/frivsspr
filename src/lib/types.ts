@@ -14,9 +14,13 @@ export enum SubjectType {
 }
 
 export interface Subject {
+  id: number;
   info: SubjectInfo;
   prerequisites?: SubjectInfo[];
   related?: SubjectInfo[];
+  comments: Comment[];
+  rating: number;
+  semester: number;
 }
 
 export interface CalculatorSubject {
@@ -26,4 +30,11 @@ export interface CalculatorSubject {
   type: SubjectType;
   isSelected: boolean;
   notTaught?: boolean;
+}
+
+interface Comment {
+  id: number;
+  name: string;
+  content: string;
+  createdAt: string;
 }

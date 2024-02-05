@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Subject {
+  id            Int       @id @default(autoincrement())
+  info          Json
+  prerequisites Json
+  related       Json
+  rating        Float     @default(0)
+  comments      Comment[]
+  semester      Int
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  name      String
+  content   String
+  createdAt DateTime @default(now())
+  subject   Subject? @relation(fields: [subjectId], references: [id])
+  subjectId Int?
+}

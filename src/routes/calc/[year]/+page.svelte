@@ -1,13 +1,18 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { semseterIII, semesterIV, semesterV, semesterVI } from '$lib/content';
+  import {
+    semesterIII,
+    semesterIV,
+    semesterV,
+    semesterVI,
+  } from '../../../content';
   import { SubjectType, type CalculatorSubject } from '$lib/types';
   import CheckableSubject from '$lib/components/CheckableSubject.svelte';
 
   const year = $page.params.year;
   let totalPoints = 0;
 
-  const semesterIIISubjects: CalculatorSubject[] = semseterIII.map((s) => {
+  const semesterIIISubjects: CalculatorSubject[] = semesterIII.map((s) => {
     return {
       name: s.info.name,
       code: s.info.code,

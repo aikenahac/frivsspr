@@ -7,9 +7,10 @@
     semesterIV,
     semesterV,
     semesterVI,
-    semseterIII,
-  } from '$lib/content';
+    semesterIII,
+  } from '../content';
   import { SubjectType } from '$lib/types';
+  import type { PageData } from './$types';
 
   function collapseSemester(semester: string) {
     const parent = document.getElementById(semester);
@@ -24,6 +25,8 @@
       });
     }
   }
+
+  export let data: PageData;
 </script>
 
 <svelte:head>
@@ -81,7 +84,7 @@
         </div>
         <br />
         <ul id="first">
-          {#each semesterI as subject}
+          {#each data.semesterI as subject}
             <Subject {subject} />
           {/each}
         </ul>
@@ -96,7 +99,7 @@
         </div>
         <br />
         <ul id="second">
-          {#each semesterII as subject}
+          {#each data.semesterII as subject}
             <Subject {subject} />
           {/each}
         </ul>
@@ -123,7 +126,7 @@
         </div>
         <br />
         <ul id="third">
-          {#each semseterIII as subject}
+          {#each data.semesterIII as subject}
             <Subject {subject} />
           {/each}
         </ul>
@@ -138,7 +141,7 @@
         </div>
         <br />
         <ul id="fourth">
-          {#each semesterIV as subject}
+          {#each data.semesterIV as subject}
             <Subject {subject} />
           {/each}
         </ul>
@@ -165,7 +168,7 @@
         </div>
         <br />
         <ul id="fifth">
-          {#each semesterV as subject}
+          {#each data.semesterV as subject}
             <Subject {subject} />
           {/each}
         </ul>
@@ -180,7 +183,7 @@
         </div>
         <br />
         <ul id="sixth">
-          {#each semesterVI as subject}
+          {#each data.semesterVI as subject}
             <Subject {subject} />
           {/each}
         </ul>

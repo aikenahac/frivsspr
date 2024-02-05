@@ -1,4 +1,4 @@
-import { SubjectType, type Subject } from './types';
+import { SubjectType, type Subject } from './lib/types';
 
 export const semesterI: Subject[] = [
   {
@@ -105,7 +105,7 @@ export const semesterII: Subject[] = [
   },
 ];
 
-export const semseterIII: Subject[] = [
+export const semesterIII: Subject[] = [
   {
     info: {
       name: 'Komunikacijski protokoli in omrežna varnost',
