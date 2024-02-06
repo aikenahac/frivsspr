@@ -23,7 +23,6 @@ model Subject {
 
 model Comment {
   id        Int      @id @default(autoincrement())
-  name      String
   content   String
   approved  Boolean  @default(false)
   createdAt DateTime @default(now())

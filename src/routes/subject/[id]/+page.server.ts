@@ -8,6 +8,9 @@ export const load: PageServerLoad = async ({ params }) => {
     where: {
       id: parseInt(params.id),
     },
+    include: {
+      comments: true,
+    },
   });
 
   return {

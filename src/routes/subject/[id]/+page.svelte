@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { PageData } from './$types';
-  import { enhance } from '$app/forms';
 
   function getSubjectLink(code: string | null): string {
     switch (code) {
@@ -22,6 +21,7 @@
   let hasVoted = true;
   let vote = 5;
   let voteCount: number;
+  let comment = '';
 
   onMount(() => {
     const hv: boolean = JSON.parse(
@@ -54,6 +54,21 @@
     const { newRating, count } = await resp.json();
     rating = newRating;
     voteCount = count;
+    hasVoted = true;
+  }
+
+  async function submitComment() {
+    await fetch('/api/comment', {
+      method: 'POST',
+      body: JSON.stringify({ id: subject.id, content: comment }),
+      headers: {
+        'content-type': 'application/json',
+      },
+    });
+
+    comment = '';
+
+    return;
   }
 </script>
 
@@ -149,4 +164,26 @@
     {/if}
     <div class="divider" />
   </ul>
+  <div class="flex flex-col">
+    <textarea
+      placeholder="Komentar (ko oddaš ga mora admin sprejeti)"
+      class="textarea textarea-info textarea-lg w-full"
+      bind:value={comment}
+    ></textarea>
+    <br />
+    <button class="btn" on:click={() => submitComment()}>Oddaj</button>
+    <div class="divider" />
+    <h2 class="font-['Klavila'] font-bold py-5 text-3xl">Komentarji</h2>
+    <div class="columns-1 gap-3 lg:columns-2">
+      {#each subject.comments as comment}
+        {#if comment.approved}
+          <div class="card w-96 bg-base-100 shadow-xl mb-2">
+            <div class="card-body break-words">
+              <p>{comment.content}</p>
+            </div>
+          </div>
+        {/if}
+      {/each}
+    </div>
+  </div>
 </body>

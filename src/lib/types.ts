@@ -35,7 +35,7 @@ export interface CalculatorSubject {
 
 interface Comment {
   id: number;
-  name: string;
   content: string;
+  approved: boolean;
   createdAt: string;
 }
