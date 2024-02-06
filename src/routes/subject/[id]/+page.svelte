@@ -172,7 +172,7 @@
       placeholder="Komentar (ko oddaš ga mora admin sprejeti)"
       class="textarea textarea-info textarea-lg w-full"
       bind:value={comment}
-    ></textarea>
+    />
     <br />
     <button class="btn" on:click={() => submitComment()}>Oddaj</button>
     <div class="divider" />
