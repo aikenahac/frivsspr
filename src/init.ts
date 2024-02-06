@@ -27,9 +27,12 @@ async function addSubject(subject: Subject, semester: number) {
   });
 }
 
-semesterI.forEach(async (s) => await addSubject(s, 1));
-semesterII.forEach(async (s) => await addSubject(s, 2));
-semesterIII.forEach(async (s) => await addSubject(s, 3));
-semesterIV.forEach(async (s) => await addSubject(s, 4));
-semesterV.forEach(async (s) => await addSubject(s, 5));
-semesterVI.forEach(async (s) => await addSubject(s, 6));
+const neki = await prisma.subject.findMany();
+if (neki.length === 0) {
+  semesterI.forEach(async (s) => await addSubject(s, 1));
+  semesterII.forEach(async (s) => await addSubject(s, 2));
+  semesterIII.forEach(async (s) => await addSubject(s, 3));
+  semesterIV.forEach(async (s) => await addSubject(s, 4));
+  semesterV.forEach(async (s) => await addSubject(s, 5));
+  semesterVI.forEach(async (s) => await addSubject(s, 6));
+}
