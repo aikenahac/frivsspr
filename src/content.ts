@@ -62,7 +62,7 @@ export const semesterII: Subject[] = [
   {
     info: {
       name: 'Programiranje 2',
-      code: '63278',
+      code: '63706',
       points: 6,
       type: SubjectType.Mandatory,
     },
