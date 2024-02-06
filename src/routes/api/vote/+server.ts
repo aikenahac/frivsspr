@@ -19,7 +19,8 @@ export const POST: RequestHandler = async ({ request }) => {
     },
   });
 
-  const rating = update.ratings.reduce((a, c) => a + c, 0) / update.voteCount;
+  const count = update.voteCount;
+  const newRating = update.ratings.reduce((a, c) => a + c, 0) / count;
 
-  return json(rating);
+  return json({ newRating, count });
 };

@@ -18,23 +18,30 @@
   export let data: PageData;
   const subject = data.subject;
 
-  let rating: number | null = null;
+  let rating: number = NaN;
   let hasVoted = true;
   let vote = 5;
+  let voteCount: number;
 
   onMount(() => {
-    const hv: boolean = JSON.parse(localStorage.getItem('hasVoted') || 'false');
-    const vt: number = parseInt(localStorage.getItem('vote') || '0');
+    const hv: boolean = JSON.parse(
+      localStorage.getItem(`hasVoted-${subject.id}`) || 'false',
+    );
+    const vt: number = parseInt(
+      localStorage.getItem(`vote-${subject.id}`) || '0',
+    );
 
     hasVoted = hv;
     vote = vt;
-    rating =
+    const calc =
       data.subject.ratings.reduce((a, c) => a + c, 0) / data.subject.voteCount;
+    rating = !Number.isNaN(calc) ? calc : 0;
+    voteCount = subject.ratings.length;
   });
 
   async function submitVote() {
-    localStorage.setItem('hasVoted', 'true');
-    localStorage.setItem('vote', vote.toString());
+    localStorage.setItem(`hasVoted-${subject.id}`, 'true');
+    localStorage.setItem(`vote-${subject.id}`, vote.toString());
 
     const resp = await fetch('/api/vote', {
       method: 'POST',
@@ -44,7 +51,9 @@
       },
     });
 
-    rating = await resp.json();
+    const { newRating, count } = await resp.json();
+    rating = newRating;
+    voteCount = count;
   }
 </script>
 
@@ -70,8 +79,8 @@
   </p>
   <p>Tip: {subject.info.type}</p>
   <p>Kreditne točke: {subject.info.points}</p>
-  {#if rating}
-    <p>Ocena: {rating}</p>
+  {#if !Number.isNaN(rating)}
+    <p>Ocena: {rating} ({voteCount})</p>
     <div class="rating rating-lg">
       <input
         disabled={hasVoted}
