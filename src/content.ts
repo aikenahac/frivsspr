@@ -1,4 +1,4 @@
-import { SubjectType, type Subject } from './lib/types';
+import { SubjectType, type Subject } from './base_types';
 
 export const semesterI: Subject[] = [
   {

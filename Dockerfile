@@ -37,5 +37,6 @@ COPY --from=build ./build .
 COPY --from=build ./prisma ./prisma
 COPY --from=build ./src/init.ts ./src/init.ts
 COPY --from=build ./src/content.ts ./src/content.ts
+COPY --from=build ./src/base_types.ts ./src/base_types.ts
 
 CMD [ "node", "index.js" ]

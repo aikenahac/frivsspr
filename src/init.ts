@@ -1,4 +1,4 @@
-import type { Subject } from '$lib/types.js';
+import type { Subject } from './base_types';
 import {
   semesterI,
   semesterII,

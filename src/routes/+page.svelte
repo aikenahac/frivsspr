@@ -1,14 +1,6 @@
 <script lang="ts">
   import Subject from '$lib/components/Subject.svelte';
   import calcIcon from '$lib/assets/calc.svg';
-  import {
-    semesterI,
-    semesterII,
-    semesterIV,
-    semesterV,
-    semesterVI,
-    semesterIII,
-  } from '../content';
   import { SubjectType } from '$lib/types';
   import type { PageData } from './$types';
 
