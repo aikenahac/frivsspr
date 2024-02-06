@@ -96,7 +96,9 @@
     >
   </p>
   <p>Tip: {subject.info.type}</p>
-  <p>Kreditne točke: {subject.info.points}</p>
+  {#if subject.info.points}
+    <p>Kreditne točke: {subject.info.points}</p>
+  {/if}
   {#if !Number.isNaN(rating)}
     <p>Ocena: {rating} ({voteCount})</p>
     <div class="rating rating-lg">
