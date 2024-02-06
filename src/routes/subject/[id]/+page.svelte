@@ -19,7 +19,7 @@
 
   let rating: number = NaN;
   let hasVoted = true;
-  let vote = 5;
+  let vote = 0;
   let voteCount: number;
   let comment = '';
 
@@ -34,9 +34,12 @@
     hasVoted = hv;
     vote = vt;
     const calc =
-      data.subject.ratings.reduce((a, c) => a + c, 0) / data.subject.voteCount;
+      data.subject.ratings && data.subject.voteCount
+        ? data.subject.ratings.reduce((a, c) => a + c, 0) /
+          data.subject.voteCount
+        : 0;
     rating = !Number.isNaN(calc) ? calc : 0;
-    voteCount = subject.ratings.length;
+    voteCount = subject.ratings?.length ?? 0;
   });
 
   async function submitVote() {
@@ -175,7 +178,7 @@
     <div class="divider" />
     <h2 class="font-['Klavila'] font-bold py-5 text-3xl">Komentarji</h2>
     <div class="columns-1 gap-3 lg:columns-2">
-      {#each subject.comments as comment}
+      {#each subject.comments ?? [] as comment}
         {#if comment.approved}
           <div class="card w-96 bg-base-100 shadow-xl mb-2">
             <div class="card-body break-words">
