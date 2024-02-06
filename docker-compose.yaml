@@ -22,7 +22,7 @@ services:
     container_name: app-init
     env_file:
       - .env
-    command: npx ts-node src/init.ts
+    command: npx tsx src/init.ts
   app:
     image: frivsspr
     container_name: app
