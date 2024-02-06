@@ -18,8 +18,7 @@
   export let data: PageData;
   const subject = data.subject;
 
-  let rating =
-    data.subject.ratings.reduce((a, c) => a + c, 0) / data.subject.voteCount;
+  let rating: number | null = null;
   let hasVoted = true;
   let vote = 5;
 
@@ -29,6 +28,8 @@
 
     hasVoted = hv;
     vote = vt;
+    rating =
+      data.subject.ratings.reduce((a, c) => a + c, 0) / data.subject.voteCount;
   });
 
   async function submitVote() {
@@ -69,53 +70,55 @@
   </p>
   <p>Tip: {subject.info.type}</p>
   <p>Kreditne točke: {subject.info.points}</p>
-  <p>Ocena: {rating}</p>
-  <div class="rating rating-lg">
-    <input
-      disabled={hasVoted}
-      type="radio"
-      name="rating-1"
-      class="mask mask-star"
-      checked={vote === 1}
-      on:click={() => (vote = 1)}
-    />
-    <input
-      disabled={hasVoted}
-      type="radio"
-      name="rating-1"
-      class="mask mask-star"
-      checked={vote === 2}
-      on:click={() => (vote = 2)}
-    />
-    <input
-      disabled={hasVoted}
-      type="radio"
-      name="rating-1"
-      class="mask mask-star"
-      checked={vote === 3}
-      on:click={() => (vote = 3)}
-    />
-    <input
-      disabled={hasVoted}
-      type="radio"
-      name="rating-1"
-      class="mask mask-star"
-      checked={vote === 4}
-      on:click={() => (vote = 4)}
-    />
-    <input
-      disabled={hasVoted}
-      type="radio"
-      name="rating-1"
-      class="mask mask-star"
-      checked={vote === 5}
-      on:click={() => (vote = 5)}
-    />
-    <button disabled={hasVoted} class="btn ml-2" on:click={() => submitVote()}
-      >Glasuj</button
-    >
-    <div class="divider" />
-  </div>
+  {#if rating}
+    <p>Ocena: {rating}</p>
+    <div class="rating rating-lg">
+      <input
+        disabled={hasVoted}
+        type="radio"
+        name="rating-1"
+        class="mask mask-star"
+        checked={vote === 1}
+        on:click={() => (vote = 1)}
+      />
+      <input
+        disabled={hasVoted}
+        type="radio"
+        name="rating-1"
+        class="mask mask-star"
+        checked={vote === 2}
+        on:click={() => (vote = 2)}
+      />
+      <input
+        disabled={hasVoted}
+        type="radio"
+        name="rating-1"
+        class="mask mask-star"
+        checked={vote === 3}
+        on:click={() => (vote = 3)}
+      />
+      <input
+        disabled={hasVoted}
+        type="radio"
+        name="rating-1"
+        class="mask mask-star"
+        checked={vote === 4}
+        on:click={() => (vote = 4)}
+      />
+      <input
+        disabled={hasVoted}
+        type="radio"
+        name="rating-1"
+        class="mask mask-star"
+        checked={vote === 5}
+        on:click={() => (vote = 5)}
+      />
+      <button disabled={hasVoted} class="btn ml-2" on:click={() => submitVote()}
+        >Glasuj</button
+      >
+      <div class="divider" />
+    </div>
+  {/if}
   <ul>
     {#if subject.prerequisites != null && subject.prerequisites.length > 0}
       Predpogoji:
