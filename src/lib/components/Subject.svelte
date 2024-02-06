@@ -22,18 +22,6 @@
     }
   }
 
-  function getSubjectLink(code: string | null): string {
-    switch (code) {
-      case null:
-        return '/no-subject';
-      case 'splosni-izbirni-predmeti':
-      case 'delovna-praksa':
-        return `https://www.fri.uni-lj.si/sl/${code}`;
-      default:
-        return `https://www.fri.uni-lj.si/sl/predmet/${code}`;
-    }
-  }
-
   function getSubjectColor(type: SubjectType | undefined): string {
     switch (type) {
       case SubjectTypeVar.Disciplinary:
@@ -67,10 +55,8 @@
       </div>
     </div>
     <div class="collapse-content">
-      Predmet: <a
-        class="text-info"
-        href={getSubjectLink(subject.info.code)}
-        target={subject.info.code ? '_blank' : ''}>Odpri predmet</a
+      Predmet: <a class="text-info" href={`/subject/${subject.id}`}
+        >Odpri predmet</a
       >
       <br />
       {#if subject.info.type === SubjectTypeVar.Common}

@@ -19,7 +19,8 @@ export interface Subject {
   prerequisites?: SubjectInfo[];
   related?: SubjectInfo[];
   comments: Comment[];
-  rating: number;
+  ratings: number[];
+  voteCount: number;
   semester: number;
 }
 

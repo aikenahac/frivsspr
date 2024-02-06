@@ -15,7 +15,8 @@ model Subject {
   info          Json
   prerequisites Json
   related       Json
-  rating        Float     @default(0)
+  ratings       Int[]
+  voteCount     Int       @default(0)
   comments      Comment[]
   semester      Int
 }
@@ -24,6 +25,7 @@ model Comment {
   id        Int      @id @default(autoincrement())
   name      String
   content   String
+  approved  Boolean  @default(false)
   createdAt DateTime @default(now())
   subject   Subject? @relation(fields: [subjectId], references: [id])
   subjectId Int?

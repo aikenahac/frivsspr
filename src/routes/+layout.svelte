@@ -2,10 +2,6 @@
   import '../app.postcss';
 </script>
 
-<svelte:head>
-  <title>FRI VSŠ Predmetnik</title>
-</svelte:head>
-
 <main>
   <div class="navbar bg-base-100">
     <div class="flex-1">
