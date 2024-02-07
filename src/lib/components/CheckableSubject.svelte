@@ -12,6 +12,21 @@
     newSubj.isSelected = false;
     selectSubject(newSubj);
   }
+
+  function getSubjectColor(type: SubjectType) {
+    switch (type) {
+      case SubjectType.Mandatory:
+        return 'text-base-content';
+      case SubjectType.Disciplinary:
+        return 'text-warning';
+      case SubjectType.Directionary:
+        return 'text-info';
+      case SubjectType.Common:
+        return 'text-success';
+    }
+
+    return '';
+  }
 </script>
 
 <div>
@@ -37,7 +52,7 @@
         bind:checked={subject.isSelected}
         disabled={subject.type === SubjectType.Mandatory || subject.notTaught}
       />
-      <p class="ml-2">
+      <p class={`ml-2 ${getSubjectColor(subject.type)}`}>
         {subject.name}
         {subject.notTaught ? '(Se ne izvaja)' : ''}
       </p>

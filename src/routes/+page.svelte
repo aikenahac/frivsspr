@@ -64,6 +64,13 @@
     </div>
   </div>
 
+  <br />
+  <p class="font-bold text-xl">
+    Tekom študija na faksu, moraš imeti opravljena vsaj dva smerna predmeta
+    (modra barva).
+  </p>
+  <br />
+
   <div>
     <h2 class="font-['Klavila'] font-bold py-5 text-2xl">1. letnik</h2>
     <ul>
