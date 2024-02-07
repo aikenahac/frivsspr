@@ -29,4 +29,5 @@ export interface Comment {
   content: string;
   approved: boolean;
   createdAt: string;
+  subject?: Subject;
 }
