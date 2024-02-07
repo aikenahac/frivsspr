@@ -5,7 +5,7 @@ services:
     image: postgres:14
     container_name: db
     env_file:
-      - .env
+      - .env # If deploying from portainer, use stack.env
     ports:
       - 5432:5432
     volumes:
@@ -15,7 +15,7 @@ services:
     image: ghcr.io/aikenahac/frivsspr:master # Change tag if needed, currently support tags "master" and "beta"
     container_name: app-migrate
     env_file:
-      - .env
+      - .env # If deploying from portainer, use stack.env
     depends_on:
       - db
     command: prisma migrate deploy
@@ -23,7 +23,7 @@ services:
     image: ghcr.io/aikenahac/frivsspr:master # Change tag if needed, currently support tags "master" and "beta"
     container_name: app-init
     env_file:
-      - .env
+      - .env # If deploying from portainer, use stack.env
     depends_on:
       - app-migrate
     command: npx tsx src/init.ts
@@ -31,7 +31,7 @@ services:
     image: ghcr.io/aikenahac/frivsspr:master # Change tag if needed, currently support tags "master" and "beta"
     container_name: app
     env_file:
-      - .env
+      - .env # If deploying from portainer, use stack.env
     depends_on:
       - app-migrate
       - app-init
