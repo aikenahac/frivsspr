@@ -12,7 +12,7 @@ services:
       - db_data:/var/lib/postgresql/data
     restart: on-failure
   app-migrate:
-    image: frivsspr
+    image: ghcr.io/aikenahac/frivsspr:master # Change tag if needed, currently support tags "master" and "beta"
     container_name: app-migrate
     env_file:
       - .env
@@ -20,7 +20,7 @@ services:
       - db
     command: prisma migrate deploy
   app-init:
-    image: frivsspr
+    image: ghcr.io/aikenahac/frivsspr:master # Change tag if needed, currently support tags "master" and "beta"
     container_name: app-init
     env_file:
       - .env
@@ -28,7 +28,7 @@ services:
       - app-migrate
     command: npx tsx src/init.ts
   app:
-    image: frivsspr
+    image: ghcr.io/aikenahac/frivsspr:master # Change tag if needed, currently support tags "master" and "beta"
     container_name: app
     env_file:
       - .env
