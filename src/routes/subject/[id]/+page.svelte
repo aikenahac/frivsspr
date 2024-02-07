@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { PageData } from './$types';
+  import { readableDate } from '$lib/utils';
 
   function getSubjectLink(code: string | null): string {
     switch (code) {
@@ -179,11 +180,12 @@
     <button class="btn" on:click={() => submitComment()}>Oddaj</button>
     <div class="divider" />
     <h2 class="font-['Klavila'] font-bold py-5 text-3xl">Komentarji</h2>
-    <div class="columns-1 gap-3 lg:columns-2">
+    <div class="flex flex-col items-center justify-start">
       {#each subject.comments ?? [] as comment}
         {#if comment.approved}
-          <div class="card w-96 bg-base-100 shadow-xl mb-2">
+          <div class="card w-full bg-base-100 shadow-xl mb-2">
             <div class="card-body break-words">
+              <p class="font-bold">{readableDate(comment.createdAt)}</p>
               <p>{comment.content}</p>
             </div>
           </div>

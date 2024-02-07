@@ -36,7 +36,7 @@ export const load: PageServerLoad = async () => {
 
   const semesterI = sIp as unknown as Subject[];
   const semesterII = sIIp as unknown as Subject[];
-  const semesterIII = sIIp as unknown as Subject[];
+  const semesterIII = sIIIp as unknown as Subject[];
   const semesterIV = sIVp as unknown as Subject[];
   const semesterV = sVp as unknown as Subject[];
   const semesterVI = sVIp as unknown as Subject[];

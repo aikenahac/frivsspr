@@ -29,6 +29,7 @@
     "@prisma/client": "5.9.1",
     "@sveltejs/adapter-node": "^4.0.1",
     "cheerio": "1.0.0-rc.12",
-    "daisyui": "^3.1.6"
+    "daisyui": "^3.1.6",
+    "moment": "^2.30.1"
   }
 }

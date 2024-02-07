@@ -1,12 +1,14 @@
 <script lang="ts">
+  import AdminComment from '$lib/components/AdminComment.svelte';
+  import { onMount } from 'svelte';
   import type { PageData } from './$types';
 
   export let data: PageData;
   const comments = data.comments;
   let authorized = false;
-  let password = '';
+  let pwd = '';
 
-  async function login() {
+  async function login(password: string, msg: string) {
     const resp = await fetch('/api/admin', {
       method: 'POST',
       body: JSON.stringify({ password }),
@@ -18,15 +20,24 @@
     const { status } = await resp.json();
 
     if (status === 401) {
-      return alert('Wrong password');
+      return alert(msg);
     } else if (status === 200) {
-      password = '';
       authorized = true;
+      localStorage.setItem('password', password);
+      password = '';
       return;
     }
 
     alert('Unknown error');
   }
+
+  onMount(() => {
+    const pass = localStorage.getItem('password');
+
+    if (pass) {
+      login(pass, 'Authorize again');
+    }
+  });
 </script>
 
 <svelte:head>
@@ -38,20 +49,22 @@
     Admin (Comment approval)
   </h1>
   {#if authorized}
-    {#each comments as comment}
-      <p>
-        {comment.subject?.info.name}: {comment.content} (Approved: {comment.approved})
-      </p>
-    {/each}
+    <div class="grid grid-cols-2 gap-2">
+      {#each comments as comment}
+        <AdminComment {comment} />
+      {/each}
+    </div>
   {:else}
     <div class="flex flex-row items-center">
       <input
         type="password"
         placeholder="Password"
         class="input input-bordered input-info w-full max-w-xs mr-2"
-        bind:value={password}
+        bind:value={pwd}
       />
-      <button class="btn btn-info" on:click={() => login()}>Button</button>
+      <button class="btn btn-info" on:click={() => login(pwd, 'Wrong password')}
+        >Button</button
+      >
     </div>
   {/if}
 </body>
