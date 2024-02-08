@@ -1,38 +1,78 @@
-import type { Subject } from './base_types';
-import {
-  semesterI,
-  semesterII,
-  semesterIII,
-  semesterIV,
-  semesterV,
-  semesterVI,
-} from './content.js';
-import type { Prisma } from '@prisma/client';
+import { subjects } from './content.js';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-async function addSubject(subject: Subject, semester: number) {
-  const info = subject.info as unknown as Prisma.JsonObject;
-  const prerequisites = (subject.prerequisites ??
-    []) as unknown as Prisma.JsonArray;
-  const related = (subject.related ?? []) as unknown as Prisma.JsonArray;
-  await prisma.subject.create({
-    data: {
-      info,
-      prerequisites,
-      related,
-      semester,
-    },
+console.log(subjects.length);
+const existing = await prisma.subject.findMany();
+if (existing.length === 0) {
+  let loadCounter = 0;
+  subjects.forEach(async (s) => {
+    const { id, name, code, points, type, notTaught, semester } = s;
+
+    try {
+      await prisma.subject.create({
+        data: {
+          id,
+          name,
+          code,
+          points,
+          type,
+          notTaught,
+          semester,
+        },
+      });
+    } catch (e) {
+      console.log(`Napaka pri ${s.name}`);
+      // console.log(e);
+    }
+    loadCounter++;
+    if (loadCounter === subjects.length) {
+      connectRelatedAndPrerequisites();
+    }
   });
 }
 
-const neki = await prisma.subject.findMany();
-if (neki.length === 0) {
-  semesterI.forEach(async (s) => await addSubject(s, 1));
-  semesterII.forEach(async (s) => await addSubject(s, 2));
-  semesterIII.forEach(async (s) => await addSubject(s, 3));
-  semesterIV.forEach(async (s) => await addSubject(s, 4));
-  semesterV.forEach(async (s) => await addSubject(s, 5));
-  semesterVI.forEach(async (s) => await addSubject(s, 6));
+function connectRelatedAndPrerequisites() {
+  subjects.forEach((s) => {
+    s.prerequisites?.forEach(async (pr) => {
+      try {
+        await prisma.subject.update({
+          where: {
+            id: s.id,
+          },
+          data: {
+            prerequisites: {
+              connect: {
+                id: pr,
+              },
+            },
+          },
+        });
+      } catch (e) {
+        console.log(`Napaka conn (pr): ${pr} -> ${s.name} (${s.id})`);
+        // console.log(e);
+      }
+    });
+
+    s.related?.forEach(async (re) => {
+      try {
+        await prisma.subject.update({
+          where: {
+            id: s.id,
+          },
+          data: {
+            related: {
+              connect: {
+                id: re,
+              },
+            },
+          },
+        });
+      } catch (e) {
+        console.log(`Napaka conn (re): ${re} -> ${s.name} (${s.id})`);
+        // console.log(e);
+      }
+    });
+  });
 }

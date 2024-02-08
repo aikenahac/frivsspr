@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { Subject, SubjectType } from '../types';
-  import { SubjectType as SubjectTypeVar } from '../types';
+  import type { Subject } from '$lib/types';
+  import { SubjectType } from '$lib/types';
 
-  function higlightSubject(id: string | null) {
+  function higlightSubject(id: number | null) {
     if (!id) return;
 
-    const el = document.getElementById(id);
+    const el = document.getElementById(id.toString());
 
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -24,13 +24,13 @@
 
   function getSubjectColor(type: SubjectType | undefined): string {
     switch (type) {
-      case SubjectTypeVar.Disciplinary:
+      case SubjectType.Disciplinary:
         return 'text-warning';
-      case SubjectTypeVar.Directionary:
+      case SubjectType.Directionary:
         return 'text-info';
-      case SubjectTypeVar.Common:
+      case SubjectType.Common:
         return 'text-success';
-      case SubjectTypeVar.Mandatory:
+      case SubjectType.Mandatory:
       default:
         return 'text-base-content';
     }
@@ -40,16 +40,14 @@
 </script>
 
 <main class="pb-2">
-  <div id={subject.info.code} class="collapse collapse-arrow bg-base-200">
+  <div id={subject.id.toString()} class="collapse collapse-arrow bg-base-200">
     <input type="checkbox" />
     <div
-      class="collapse-title text-xl font-medium {getSubjectColor(
-        subject.info.type,
-      )}"
+      class="collapse-title text-xl font-medium {getSubjectColor(subject.type)}"
     >
       <div class="flex flex-row items-center justify-items-center">
-        {subject.info.name}
-        {#if subject.info.notTaught}
+        {subject.name}
+        {#if subject.notTaught}
           <div class="badge badge-error ml-4">Se ne izvaja</div>
         {/if}
       </div>
@@ -59,7 +57,7 @@
         >Odpri predmet</a
       >
       <br />
-      {#if subject.info.type === SubjectTypeVar.Common}
+      {#if subject.type === SubjectType.Common}
         Dodatno: <a
           class="text-info"
           href="https://www.uni-lj.si/studij/zip/"
@@ -67,11 +65,11 @@
         >
         <br />
       {/if}
-      Tip: {subject.info.type}
+      Tip: {subject.type}
       <br />
-      Kreditne točke: {subject.info.type === SubjectTypeVar.Common
+      Kreditne točke: {subject.type === SubjectType.Common
         ? 'Razno'
-        : subject.info.points}
+        : subject.points}
       {#if subject.prerequisites != null && subject.prerequisites.length > 0}
         <br />
         <br />
@@ -82,7 +80,7 @@
             <li>
               <button
                 class="text-info text-left"
-                on:click={() => higlightSubject(prerequisite.code)}
+                on:click={() => higlightSubject(prerequisite.id)}
                 >{prerequisite.name} ({prerequisite.points} KT)</button
               >
             </li>
@@ -97,7 +95,7 @@
             <li>
               <button
                 class="text-info text-left"
-                on:click={() => higlightSubject(related.code)}
+                on:click={() => higlightSubject(related.id)}
                 >{related.name} ({related.points} KT)</button
               >
             </li>

@@ -1,9 +1,8 @@
-export interface SubjectInfo {
-  name: string;
-  code: string | null;
-  points?: number;
-  type?: SubjectType;
-  notTaught?: boolean;
+export enum SubjectTypeDB {
+  Mandatory = 'Mandatory', //'Obvezni predmet',
+  Disciplinary = 'Disciplinary', //'Strokovni izbirni predmet',
+  Directionary = 'Directionary', //'Smerni izbirni predmet',
+  Common = 'Common', //'Splošni izbirni predmet',
 }
 
 export enum SubjectType {
@@ -13,15 +12,40 @@ export enum SubjectType {
   Common = 'Splošni izbirni predmet',
 }
 
-export interface Subject {
-  id?: number;
-  info: SubjectInfo;
-  prerequisites?: SubjectInfo[];
-  related?: SubjectInfo[];
+export interface SubjectLoad {
+  id: number;
+
+  name: string;
+  code: string | null;
+  points: number | null;
+  type: SubjectTypeDB;
+  notTaught?: boolean;
+  semester: number;
+
+  prerequisites?: number[];
+  related?: number[];
   comments?: Comment[];
+
   ratings?: number[];
   voteCount?: number;
-  semester?: number;
+}
+
+export interface Subject {
+  id: number;
+
+  name: string;
+  code: string | null;
+  points: number | null;
+  type: SubjectType;
+  notTaught: boolean | null;
+  semester: number;
+
+  prerequisites?: Subject[];
+  related?: Subject[];
+  comments?: Comment[];
+
+  ratings: number[];
+  voteCount: number;
 }
 
 export interface Comment {
@@ -29,5 +53,5 @@ export interface Comment {
   content: string;
   approved: boolean;
   createdAt: string;
-  subject?: Subject;
+  subject?: SubjectLoad | Subject;
 }

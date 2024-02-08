@@ -34,13 +34,6 @@
         >
       </p>
       <p>
-        Minimalna verzija je na voljo <a
-          class="text-info"
-          href="/min"
-          target="_blank">tukaj</a
-        >
-      </p>
-      <p>
         Pripravil <a
           class="text-info"
           href="https://aikenahac.com"

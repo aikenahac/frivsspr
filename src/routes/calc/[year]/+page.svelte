@@ -1,64 +1,42 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import { subjects } from '../../../content';
   import {
-    semesterIII,
-    semesterIV,
-    semesterV,
-    semesterVI,
-  } from '../../../content';
-  import { SubjectType, type CalculatorSubject } from '$lib/types';
+    SubjectType,
+    SubjectTypeDB,
+    type CalculatorSubject,
+  } from '$lib/types';
   import CheckableSubject from '$lib/components/CheckableSubject.svelte';
 
   const year = $page.params.year;
   let totalPoints = 0;
 
-  const semesterIIISubjects: CalculatorSubject[] = semesterIII.map((s) => {
-    return {
-      name: s.info.name,
-      code: s.info.code,
-      type: s.info.type ?? SubjectType.Mandatory,
-      points: s.info.points ?? 0,
+  const parsed = subjects.map((s) => {
+    let p: CalculatorSubject = {
+      ...s,
       isSelected: false,
-      notTaught: s.info.notTaught,
     };
+
+    return p;
   });
 
-  const semesterIVSubjects: CalculatorSubject[] = semesterIV.map((s) => {
-    return {
-      name: s.info.name,
-      code: s.info.code,
-      type: s.info.type ?? SubjectType.Mandatory,
-      points: s.info.points ?? 0,
-      isSelected: false,
-      notTaught: s.info.notTaught,
-    };
-  });
-
-  const semesterVSubjects: CalculatorSubject[] = semesterV.map((s) => {
-    return {
-      name: s.info.name,
-      code: s.info.code,
-      type: s.info.type ?? SubjectType.Mandatory,
-      points: s.info.points ?? 0,
-      isSelected: false,
-      notTaught: s.info.notTaught,
-    };
-  });
-  const semesterVISubjects: CalculatorSubject[] = semesterVI.map((s) => {
-    return {
-      name: s.info.name,
-      code: s.info.code,
-      type: s.info.type ?? SubjectType.Mandatory,
-      points: s.info.points ?? 0,
-      isSelected: false,
-      notTaught: s.info.notTaught,
-    };
-  });
+  const semesterIIISubjects: CalculatorSubject[] = parsed.filter(
+    (s) => s.semester === 3,
+  );
+  const semesterIVSubjects: CalculatorSubject[] = parsed.filter(
+    (s) => s.semester === 4,
+  );
+  const semesterVSubjects: CalculatorSubject[] = parsed.filter(
+    (s) => s.semester === 5,
+  );
+  const semesterVISubjects: CalculatorSubject[] = parsed.filter(
+    (s) => s.semester === 6,
+  );
 
   function checkMandatoryInSemester(semester: CalculatorSubject[]) {
     semester.forEach((s) => {
-      if (s.type === SubjectType.Mandatory) {
-        totalPoints += s.points;
+      if (s.type === SubjectTypeDB.Mandatory) {
+        totalPoints += s.points ?? 0;
         s.isSelected = true;
       }
     });
@@ -79,8 +57,8 @@
 
     semester.forEach((s) => {
       if (
-        s.type === SubjectType.Directionary ||
-        s.type === SubjectType.Disciplinary
+        s.type === SubjectTypeDB.Directionary ||
+        s.type === SubjectTypeDB.Disciplinary
       ) {
         selective.push(s);
       }
@@ -143,7 +121,10 @@
         {subject}
         selectSubject={() => {
           subject.isSelected = !subject.isSelected;
-          totalPoints += subject.isSelected ? subject.points : -subject.points;
+          if (subject.points)
+            totalPoints += subject.isSelected
+              ? subject.points
+              : -subject.points;
         }}
       />
     {/each}
@@ -153,7 +134,10 @@
         {subject}
         selectSubject={() => {
           subject.isSelected = !subject.isSelected;
-          totalPoints += subject.isSelected ? subject.points : -subject.points;
+          if (subject.points)
+            totalPoints += subject.isSelected
+              ? subject.points
+              : -subject.points;
         }}
       />
     {/each}
@@ -164,7 +148,10 @@
         {subject}
         selectSubject={() => {
           subject.isSelected = !subject.isSelected;
-          totalPoints += subject.isSelected ? subject.points : -subject.points;
+          if (subject.points)
+            totalPoints += subject.isSelected
+              ? subject.points
+              : -subject.points;
         }}
       />
     {/each}
@@ -175,7 +162,10 @@
         {subject}
         selectSubject={() => {
           subject.isSelected = !subject.isSelected;
-          totalPoints += subject.isSelected ? subject.points : -subject.points;
+          if (subject.points)
+            totalPoints += subject.isSelected
+              ? subject.points
+              : -subject.points;
         }}
       />
     {/each}
@@ -185,7 +175,10 @@
         {subject}
         selectSubject={() => {
           subject.isSelected = !subject.isSelected;
-          totalPoints += subject.isSelected ? subject.points : -subject.points;
+          if (subject.points)
+            totalPoints += subject.isSelected
+              ? subject.points
+              : -subject.points;
         }}
       />
     {/each}
@@ -195,7 +188,10 @@
         {subject}
         selectSubject={() => {
           subject.isSelected = !subject.isSelected;
-          totalPoints += subject.isSelected ? subject.points : -subject.points;
+          if (subject.points)
+            totalPoints += subject.isSelected
+              ? subject.points
+              : -subject.points;
         }}
       />
     {/each}

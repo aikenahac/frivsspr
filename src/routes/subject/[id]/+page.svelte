@@ -77,28 +77,28 @@
 </script>
 
 <svelte:head>
-  <title>{subject.info.name}</title>
+  <title>{subject.name}</title>
 </svelte:head>
 
 <body>
   <div class="flex flex-row justify-normal items-center">
     <h1 class="font-['Klavila'] font-bold py-5 text-5xl">
-      {subject.info.name}
+      {subject.name}
     </h1>
-    {#if subject.info.notTaught}
+    {#if subject.notTaught}
       <div class="badge badge-error ml-4">Se ne izvaja</div>
     {/if}
   </div>
   <p>
     Predmet: <a
       class="text-info"
-      href={getSubjectLink(subject.info.code)}
-      target={subject.info.code ? '_blank' : ''}>Odpri predmet</a
+      href={getSubjectLink(subject.code)}
+      target={subject.code ? '_blank' : ''}>Odpri predmet</a
     >
   </p>
-  <p>Tip: {subject.info.type}</p>
-  {#if subject.info.points}
-    <p>Kreditne točke: {subject.info.points}</p>
+  <p>Tip: {subject.type}</p>
+  {#if subject.points}
+    <p>Kreditne točke: {subject.points}</p>
   {/if}
   {#if !Number.isNaN(rating)}
     <p>Ocena: {rating} ({voteCount})</p>

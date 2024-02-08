@@ -11,14 +11,27 @@ datasource db {
 }
 
 model Subject {
-  id            Int       @id @default(autoincrement())
-  info          Json
-  prerequisites Json
-  related       Json
-  ratings       Int[]
-  voteCount     Int       @default(0)
-  comments      Comment[]
-  semester      Int
+  id              Int         @id
+  name            String
+  code            String?
+  points          Int?
+  type            SubjectType
+  notTaught       Boolean?
+  semester        Int
+  prerequisites   Subject[]   @relation("SubjectPrerequisites")
+  prerequisiteFor Subject[]   @relation("SubjectPrerequisites")
+  related         Subject[]   @relation("SubjectRelated")
+  relatedTo       Subject[]   @relation("SubjectRelated")
+  comments        Comment[]
+  ratings         Int[]
+  voteCount       Int         @default(0)
+}
+
+enum SubjectType {
+  Mandatory
+  Disciplinary
+  Directionary
+  Common
 }
 
 model Comment {

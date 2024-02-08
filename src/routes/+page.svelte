@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Subject from '$lib/components/Subject.svelte';
+  import SubjectTile from '$lib/components/SubjectTile.svelte';
   import calcIcon from '$lib/assets/calc.svg';
-  import { SubjectType } from '$lib/types';
+  import { SubjectType, type Subject } from '$lib/types';
   import type { PageData } from './$types';
 
   function collapseSemester(semester: string) {
@@ -19,6 +19,12 @@
   }
 
   export let data: PageData;
+  const semesterI: Subject[] = data.subjects.filter((s) => s.semester === 1);
+  const semesterII: Subject[] = data.subjects.filter((s) => s.semester === 2);
+  const semesterIII: Subject[] = data.subjects.filter((s) => s.semester === 3);
+  const semesterIV: Subject[] = data.subjects.filter((s) => s.semester === 4);
+  const semesterV: Subject[] = data.subjects.filter((s) => s.semester === 5);
+  const semesterVI: Subject[] = data.subjects.filter((s) => s.semester === 6);
 </script>
 
 <svelte:head>
@@ -83,8 +89,8 @@
         </div>
         <br />
         <ul id="first">
-          {#each data.semesterI as subject}
-            <Subject {subject} />
+          {#each semesterI as subject}
+            <SubjectTile {subject} />
           {/each}
         </ul>
       </li>
@@ -98,8 +104,8 @@
         </div>
         <br />
         <ul id="second">
-          {#each data.semesterII as subject}
-            <Subject {subject} />
+          {#each semesterII as subject}
+            <SubjectTile {subject} />
           {/each}
         </ul>
       </li>
@@ -125,8 +131,8 @@
         </div>
         <br />
         <ul id="third">
-          {#each data.semesterIII as subject}
-            <Subject {subject} />
+          {#each semesterIII as subject}
+            <SubjectTile {subject} />
           {/each}
         </ul>
       </li>
@@ -140,8 +146,8 @@
         </div>
         <br />
         <ul id="fourth">
-          {#each data.semesterIV as subject}
-            <Subject {subject} />
+          {#each semesterIV as subject}
+            <SubjectTile {subject} />
           {/each}
         </ul>
       </li>
@@ -167,8 +173,8 @@
         </div>
         <br />
         <ul id="fifth">
-          {#each data.semesterV as subject}
-            <Subject {subject} />
+          {#each semesterV as subject}
+            <SubjectTile {subject} />
           {/each}
         </ul>
       </li>
@@ -182,8 +188,8 @@
         </div>
         <br />
         <ul id="sixth">
-          {#each data.semesterVI as subject}
-            <Subject {subject} />
+          {#each semesterVI as subject}
+            <SubjectTile {subject} />
           {/each}
         </ul>
       </li>
