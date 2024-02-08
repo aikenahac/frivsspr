@@ -71,7 +71,9 @@
       },
     });
 
-    triggerNewCommentWebhook(comment, window.location.origin);
+    const message = `**${subject.name}** ← ${comment}`;
+
+    triggerNewCommentWebhook(message, window.location.origin);
 
     comment = '';
 
