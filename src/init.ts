@@ -3,7 +3,6 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-console.log(subjects.length);
 const existing = await prisma.subject.findMany();
 if (existing.length === 0) {
   let loadCounter = 0;
@@ -24,7 +23,6 @@ if (existing.length === 0) {
       });
     } catch (e) {
       console.log(`Napaka pri ${s.name}`);
-      // console.log(e);
     }
     loadCounter++;
     if (loadCounter === subjects.length) {
@@ -51,7 +49,6 @@ function connectRelatedAndPrerequisites() {
         });
       } catch (e) {
         console.log(`Napaka conn (pr): ${pr} -> ${s.name} (${s.id})`);
-        // console.log(e);
       }
     });
 
@@ -71,7 +68,6 @@ function connectRelatedAndPrerequisites() {
         });
       } catch (e) {
         console.log(`Napaka conn (re): ${re} -> ${s.name} (${s.id})`);
-        // console.log(e);
       }
     });
   });

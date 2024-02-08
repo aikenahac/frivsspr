@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import type { PageData } from './$types';
   import { readableDate } from '$lib/utils';
+  import { triggerNewCommentWebhook } from '$lib/discord/webhooks';
 
   function getSubjectLink(code: string | null): string {
     switch (code) {
@@ -69,6 +70,8 @@
         'content-type': 'application/json',
       },
     });
+
+    triggerNewCommentWebhook(comment, window.location.origin);
 
     comment = '';
 
