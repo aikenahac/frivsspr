@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { SubjectType, type CalculatorSubject } from '$lib/types';
+  import { SubjectTypeDB, type CalculatorSubject } from '$lib/types';
 
   let zipScore = 0;
 
@@ -13,15 +13,15 @@
     selectSubject(newSubj);
   }
 
-  function getSubjectColor(type: SubjectType) {
+  function getSubjectColor(type: SubjectTypeDB) {
     switch (type) {
-      case SubjectType.Mandatory:
+      case SubjectTypeDB.Mandatory:
         return 'text-base-content';
-      case SubjectType.Disciplinary:
+      case SubjectTypeDB.Disciplinary:
         return 'text-warning';
-      case SubjectType.Directionary:
+      case SubjectTypeDB.Directionary:
         return 'text-info';
-      case SubjectType.Common:
+      case SubjectTypeDB.Common:
         return 'text-success';
     }
 
@@ -34,12 +34,12 @@
     class="flex justify-between items-center cursor-pointer pb-1"
     role="button"
     tabindex="0"
-    on:keypress={subject.type !== SubjectType.Mandatory && !subject.notTaught
+    on:keypress={subject.type !== SubjectTypeDB.Mandatory && !subject.notTaught
       ? () => {
           selectSubject(subject);
         }
       : null}
-    on:click={subject.type !== SubjectType.Mandatory && !subject.notTaught
+    on:click={subject.type !== SubjectTypeDB.Mandatory && !subject.notTaught
       ? () => {
           selectSubject(subject);
         }
@@ -50,7 +50,7 @@
         type="checkbox"
         class="checkbox"
         bind:checked={subject.isSelected}
-        disabled={subject.type === SubjectType.Mandatory || subject.notTaught}
+        disabled={subject.type === SubjectTypeDB.Mandatory || subject.notTaught}
       />
       <p class={`ml-2 ${getSubjectColor(subject.type)}`}>
         {subject.name}
@@ -58,10 +58,10 @@
       </p>
     </div>
     <p class="mr-2">
-      {subject.type === SubjectType.Common ? zipScore : subject.points} KT
+      {subject.type === SubjectTypeDB.Common ? zipScore : subject.points} KT
     </p>
   </div>
-  {#if subject.type === SubjectType.Common && subject.isSelected}
+  {#if subject.type === SubjectTypeDB.Common && subject.isSelected}
     <div class="flex">
       <div class="form-control w-full max-w-xs">
         <label class="label" for="ktinput">
