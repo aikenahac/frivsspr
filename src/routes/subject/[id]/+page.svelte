@@ -155,7 +155,15 @@
       <br />
       <ul class="pl-6 list-disc">
         {#each subject.prerequisites as prerequisite}
-          <li>{prerequisite.name} ({prerequisite.points} KT)</li>
+          <li>
+            <a
+              class="text-info"
+              target="_blank"
+              href={`/subject/${prerequisite.id}`}
+            >
+              {prerequisite.name} ({prerequisite.points} KT)</a
+            >
+          </li>
         {/each}
       </ul>
     {/if}
@@ -164,7 +172,15 @@
       Smiselne povezave:
       <ul class="pl-6 list-disc">
         {#each subject.related as related}
-          <li>{related.name} ({related.points} KT)</li>
+          <li>
+            <a
+              class="text-info"
+              target="_blank"
+              href={`/subject/${related.id}`}
+            >
+              {related.name} ({related.points} KT)</a
+            >
+          </li>
         {/each}
       </ul>
     {/if}

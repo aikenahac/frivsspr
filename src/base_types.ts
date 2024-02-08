@@ -53,5 +53,5 @@ export interface Comment {
   content: string;
   approved: boolean;
   createdAt: string;
-  subject?: SubjectLoad | Subject;
+  subject?: Subject;
 }

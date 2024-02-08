@@ -45,7 +45,7 @@
 
 <div class="card w-96 bg-neutral text-neutral-content">
   <div class="card-body items-center text-center">
-    <h2 class="card-title">Predmet: {comment?.subject?.info.name}</h2>
+    <h2 class="card-title">Predmet: {comment?.subject?.name}</h2>
     <p>{comment.content}</p>
     <p>{readableDate(comment.createdAt)}</p>
     <div class="card-actions justify-end">

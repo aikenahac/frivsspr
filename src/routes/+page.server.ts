@@ -1,7 +1,8 @@
 import prisma from '$lib/prisma';
 import type { PageServerLoad } from './$types';
-import type { Subject, SubjectTypeDB } from '$lib/types';
+import type { Subject } from '$lib/types';
 import { SubjectType } from '$lib/types';
+import { parseForType } from '$lib/utils';
 
 export const load: PageServerLoad = async () => {
   const subjectsPrisma = await prisma.subject.findMany({
@@ -35,25 +36,3 @@ export const load: PageServerLoad = async () => {
     subjects,
   };
 };
-
-function parseForType(subjects: any[]) {
-  const parsed: Subject[] = [];
-
-  subjects.forEach((s) => {
-    const subject: Subject = {
-      id: s.id,
-      name: s.name,
-      code: s.code,
-      points: s.points,
-      type: SubjectType[s.type as unknown as SubjectTypeDB],
-      notTaught: s.notTaught,
-      semester: s.semester,
-      ratings: s.ratings,
-      voteCount: s.voteCount,
-    };
-
-    parsed.push(subject);
-  });
-
-  return parsed;
-}
