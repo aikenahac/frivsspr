@@ -70,6 +70,10 @@
   loadMandatory();
 </script>
 
+<svelte:head>
+  <title>Kalkulator KT - {year}. letnik</title>
+</svelte:head>
+
 <body>
   <h1 class="font-['Klavila'] font-bold py-5 text-5xl">
     Kalkulator KT ({year}. letnik)
