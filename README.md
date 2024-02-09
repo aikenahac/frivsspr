@@ -5,4 +5,4 @@ Ker na FRI spletni strani ni seznama vseh predmetov s povezavami do njih, so tuk
 Za popravke in predloge se obrnite na ["Issues" zavihek](https://github.com/aikenahac/frivsspr/issues)
 
 [Live website](https://vss.friki.si/)\
-[Live website [Beta version]](https://frivsspr-beta.bogi.si/)
+[Live website [Beta version]](https://beta.vss.friki.si/)
