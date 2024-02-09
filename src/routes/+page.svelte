@@ -1,15 +1,8 @@
 <script lang="ts">
-  import Subject from '$lib/components/Subject.svelte';
+  import SubjectTile from '$lib/components/SubjectTile.svelte';
   import calcIcon from '$lib/assets/calc.svg';
-  import {
-    semesterI,
-    semesterII,
-    semesterIV,
-    semesterV,
-    semesterVI,
-    semseterIII,
-  } from '$lib/content';
-  import { SubjectType } from '$lib/types';
+  import { SubjectType, type Subject } from '$lib/types';
+  import type { PageData } from './$types';
 
   function collapseSemester(semester: string) {
     const parent = document.getElementById(semester);
@@ -24,6 +17,14 @@
       });
     }
   }
+
+  export let data: PageData;
+  const semesterI: Subject[] = data.subjects.filter((s) => s.semester === 1);
+  const semesterII: Subject[] = data.subjects.filter((s) => s.semester === 2);
+  const semesterIII: Subject[] = data.subjects.filter((s) => s.semester === 3);
+  const semesterIV: Subject[] = data.subjects.filter((s) => s.semester === 4);
+  const semesterV: Subject[] = data.subjects.filter((s) => s.semester === 5);
+  const semesterVI: Subject[] = data.subjects.filter((s) => s.semester === 6);
 </script>
 
 <svelte:head>
@@ -69,6 +70,13 @@
     </div>
   </div>
 
+  <br />
+  <p class="font-bold text-xl">
+    Tekom študija na faksu, moraš imeti opravljena vsaj dva smerna predmeta
+    (modra barva).
+  </p>
+  <br />
+
   <div>
     <h2 class="font-['Klavila'] font-bold py-5 text-2xl">1. letnik</h2>
     <ul>
@@ -82,7 +90,7 @@
         <br />
         <ul id="first">
           {#each semesterI as subject}
-            <Subject {subject} />
+            <SubjectTile {subject} />
           {/each}
         </ul>
       </li>
@@ -97,7 +105,7 @@
         <br />
         <ul id="second">
           {#each semesterII as subject}
-            <Subject {subject} />
+            <SubjectTile {subject} />
           {/each}
         </ul>
       </li>
@@ -123,8 +131,8 @@
         </div>
         <br />
         <ul id="third">
-          {#each semseterIII as subject}
-            <Subject {subject} />
+          {#each semesterIII as subject}
+            <SubjectTile {subject} />
           {/each}
         </ul>
       </li>
@@ -139,7 +147,7 @@
         <br />
         <ul id="fourth">
           {#each semesterIV as subject}
-            <Subject {subject} />
+            <SubjectTile {subject} />
           {/each}
         </ul>
       </li>
@@ -166,7 +174,7 @@
         <br />
         <ul id="fifth">
           {#each semesterV as subject}
-            <Subject {subject} />
+            <SubjectTile {subject} />
           {/each}
         </ul>
       </li>
@@ -181,7 +189,7 @@
         <br />
         <ul id="sixth">
           {#each semesterVI as subject}
-            <Subject {subject} />
+            <SubjectTile {subject} />
           {/each}
         </ul>
       </li>

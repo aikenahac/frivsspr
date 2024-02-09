@@ -1,29 +1,7 @@
-export interface SubjectInfo {
-  name: string;
-  code: string | null;
-  points?: number;
-  type?: SubjectType;
-  notTaught?: boolean;
-}
+export type { Subject, SubjectLoad, Comment } from '../base_types';
+export { SubjectType, SubjectTypeDB } from '../base_types';
+import type { SubjectLoad } from '../base_types';
 
-export enum SubjectType {
-  Mandatory = 'Obvezni predmet',
-  Disciplinary = 'Strokovni izbirni predmet',
-  Directionary = 'Smerni izbirni predmet',
-  Common = 'Splošni izbirni predmet',
-}
-
-export interface Subject {
-  info: SubjectInfo;
-  prerequisites?: SubjectInfo[];
-  related?: SubjectInfo[];
-}
-
-export interface CalculatorSubject {
-  name: string;
-  code: string | null;
-  points: number;
-  type: SubjectType;
+export interface CalculatorSubject extends SubjectLoad {
   isSelected: boolean;
-  notTaught?: boolean;
 }

@@ -2,10 +2,6 @@
   import '../app.postcss';
 </script>
 
-<svelte:head>
-  <title>FRI VSŠ Predmetnik</title>
-</svelte:head>
-
 <main>
   <div class="navbar bg-base-100">
     <div class="flex-1">
@@ -35,13 +31,6 @@
           class="text-info"
           href="https://github.com/aikenahac/frivsspr/issues"
           target="_blank">popravke in predloge</a
-        >
-      </p>
-      <p>
-        Minimalna verzija je na voljo <a
-          class="text-info"
-          href="/min"
-          target="_blank">tukaj</a
         >
       </p>
       <p>
