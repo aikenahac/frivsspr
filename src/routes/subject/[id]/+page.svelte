@@ -198,7 +198,11 @@
       bind:value={comment}
     />
     <br />
-    <button class="btn" on:click={() => submitComment()}>Oddaj</button>
+    <button
+      disabled={comment.length === 0}
+      class="btn"
+      on:click={() => submitComment()}>Oddaj</button
+    >
     <div class="divider" />
     <h2 class="font-['Klavila'] font-bold py-5 text-3xl">Komentarji</h2>
     <div class="flex flex-col items-center justify-start">

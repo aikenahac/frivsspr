@@ -63,7 +63,7 @@
         bind:value={pwd}
       />
       <button class="btn btn-info" on:click={() => login(pwd, 'Wrong password')}
-        >Button</button
+        >Login</button
       >
     </div>
   {/if}
