@@ -19,7 +19,7 @@
   export let data: PageData;
   const subject = data.subject;
 
-  let rating: number = NaN;
+  let rating: string | undefined = undefined;
   let hasVoted = true;
   let vote = 0;
   let voteCount: number;
@@ -35,12 +35,12 @@
 
     hasVoted = hv;
     vote = vt;
-    const calc =
+    rating = (
       data.subject.ratings && data.subject.voteCount
         ? data.subject.ratings.reduce((a, c) => a + c, 0) /
           data.subject.voteCount
-        : 0;
-    rating = !Number.isNaN(calc) ? calc : 0;
+        : 0
+    ).toFixed(2);
     voteCount = subject.ratings?.length ?? 0;
   });
 
@@ -57,7 +57,7 @@
     });
 
     const { newRating, count } = await resp.json();
-    rating = newRating;
+    rating = newRating.toFixed(2);
     voteCount = count;
     hasVoted = true;
   }
@@ -105,7 +105,7 @@
   {#if subject.points}
     <p>Kreditne točke: {subject.points}</p>
   {/if}
-  {#if !Number.isNaN(rating)}
+  {#if rating}
     <p>Ocena: {rating} ({voteCount})</p>
     <div class="rating rating-lg">
       <input
