@@ -208,6 +208,14 @@ export const subjects: SubjectLoad[] = [
     semester: 3,
   },
   {
+    id: 31,
+    name: 'Izbrana poglavja iz RI',
+    code: '63749b',
+    points: 6,
+    type: SubjectTypeDB.Disciplinary,
+    semester: 3,
+  },
+  {
     id: 26,
     name: 'Spletne tehnologije',
     code: '63727',
@@ -253,14 +261,6 @@ export const subjects: SubjectLoad[] = [
     semester: 4,
     prerequisites: [15],
     related: [13, 14, 15, 45],
-  },
-  {
-    id: 31,
-    name: 'Izbrana poglavja iz RI',
-    code: '63749b',
-    points: 6,
-    type: SubjectTypeDB.Disciplinary,
-    semester: 4,
   },
   {
     id: 32,
