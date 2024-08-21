@@ -11,7 +11,7 @@
 
 ```
 pnpm install
-``` 
+```
 
 ### Run development environment
 
@@ -29,7 +29,7 @@ If not you can use the following command to format the code before commiting.
 
 ```
 pnpm format
-``` 
+```
 
 ## MRs
 
