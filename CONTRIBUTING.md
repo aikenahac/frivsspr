@@ -16,7 +16,7 @@ pnpm install
 ### Run development environment
 
 ```
-docker compose up -f docker-compose.dev.yaml
+docker compose -f docker-compose.dev.yaml up
 
 pnpm dev
 ```
