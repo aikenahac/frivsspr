@@ -33,4 +33,4 @@ pnpm format
 
 ## MRs
 
-When you're ready to create a merge request, the merge request should contain an explanation of what you did, how and why. If needed link to messages on the Discord serverl
+When you're ready to create a merge request, the merge request should contain an explanation of what you did, how and why. If applicable, link to messages on the FRI Discord server.
