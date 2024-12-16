@@ -61,6 +61,24 @@
     }
   }
 
+  async function submitVote() {
+    localStorage.setItem(`hasVoted-${subject.id}`, 'true');
+    localStorage.setItem(`vote-${subject.id}`, vote.toString());
+
+    const resp = await fetch('/api/vote', {
+      method: 'POST',
+      body: JSON.stringify({ id: data.subject.id, vote: vote }),
+      headers: {
+        'content-type': 'application/json',
+      },
+    });
+
+    const { newRating, count } = await resp.json();
+    rating = newRating.toFixed(2);
+    voteCount = count;
+    hasVoted = true;
+  }
+
   export let subject: Subject;
 </script>
 
