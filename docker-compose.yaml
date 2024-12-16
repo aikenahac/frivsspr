@@ -26,7 +26,7 @@ services:
       - .env # If deploying from portainer, use stack.env
     depends_on:
       - app-migrate
-    command: npx tsx src/init.ts
+    command: npx tsx src/seed.ts
   app:
     image: ghcr.io/aikenahac/frivsspr:master # Change tag if needed, currently support tags "master" and "beta"
     container_name: app
