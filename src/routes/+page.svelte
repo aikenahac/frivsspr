@@ -77,6 +77,15 @@
   </p>
   <br />
 
+  <p class="text-sm">
+    Če ti je predmetnik prišel prav, bi cenil <a
+      href="https://www.buymeacoffee.com/aiken.si"
+      target="_blank"
+      class="text-[#D423C6]">kavico</a
+    > ☕️
+  </p>
+  <br/>
+
   <div>
     <h2 class="font-['Klavila'] font-bold py-5 text-2xl">1. letnik</h2>
     <ul>
