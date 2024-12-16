@@ -6,5 +6,5 @@ Za popravke in predloge se obrnite na ["Issues" zavihek](https://github.com/aike
 
 Če želite prispevati kodi, si poglejte [pravila o prispevanju](./CONTRIBUTING.md)
 
-[Live website](https://vss.friki.si/)\
-[Live website [Beta version]](https://beta.vss.friki.si/)
+[Live website](https://fri.bogi.si/)\
+[Live website [Beta version]](https://beta.fri.bogi.si/)
