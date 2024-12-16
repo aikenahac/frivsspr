@@ -67,7 +67,7 @@
 
     const resp = await fetch('/api/vote', {
       method: 'POST',
-      body: JSON.stringify({ id: data.subject.id, vote: vote }),
+      body: JSON.stringify({ id: subject.id, vote: vote }),
       headers: {
         'content-type': 'application/json',
       },
