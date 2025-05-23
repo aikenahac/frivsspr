@@ -89,12 +89,12 @@
       class="collapse-title text-xl font-medium {getSubjectColor(subject.type)} flex flex-row items-center justify-between"
     >
       <div class="flex flex-row items-center justify-items-center">
-        {subject.name}
+        <span class="text-sm sm:text-base">{subject.name}</span>
         {#if rating && voteCount > 0}
-          <span class="text-sm ml-3">[{rating}/5 ({voteCount})]</span>
+          <span class="text-[10px] ml-3 sm:text-s">[{rating}/5 ({voteCount})]</span>
         {/if}
         {#if subject.notTaught}
-          <div class="badge badge-error ml-4">Se ne izvaja</div>
+          <div class="badge badge-error ml-4 badge-sm sm:badge-md">Ne izvaja</div>
         {/if}
       </div>
     </div>

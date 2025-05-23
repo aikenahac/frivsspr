@@ -40,28 +40,28 @@
 
   <h2 class="font-['Klavila'] font-bold py-5 text-2xl">Legenda:</h2>
   <div class="grid grid-cols-2 gap-4">
-    <div class="flex flex-column items-center">
+    <div class="flex flex-column items-center gap-1">
       <div class="avatar">
         <div class="bg-base-content rounded-full w-12" />
       </div>
       <div class="divider lg:divider-horizontal" />
       <p>{SubjectType.Mandatory}</p>
     </div>
-    <div class="flex flex-column items-center">
+    <div class="flex flex-column items-center gap-1">
       <div class="avatar">
         <div class="bg-warning rounded-full w-12" />
       </div>
       <div class="divider lg:divider-horizontal" />
       <p>{SubjectType.Disciplinary}</p>
     </div>
-    <div class="flex flex-column items-center">
+    <div class="flex flex-column items-center gap-1">
       <div class="avatar">
         <div class="bg-info rounded-full w-12" />
       </div>
       <div class="divider lg:divider-horizontal" />
       <p>{SubjectType.Directionary}</p>
     </div>
-    <div class="flex flex-column items-center">
+    <div class="flex flex-column items-center gap-1">
       <div class="avatar">
         <div class="bg-success rounded-full w-12" />
       </div>
