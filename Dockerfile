@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:22-alpine
 
 # Install necessary dependencies for Prisma and OpenSSL
 RUN apk add --no-cache openssl
@@ -16,6 +16,8 @@ RUN pnpm install
 COPY . .
 
 # Generate Prisma client
+RUN rm -rf node_modules/.prisma
+RUN pnpm dlx prisma generate --no-engine
 RUN pnpm dlx prisma generate
 
 # Build the project

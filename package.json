@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "postinstall": "prisma generate",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
@@ -14,6 +15,9 @@
     "db:init": "pnpm dlx prisma migrate dev",
     "db:seed": "pnpm dlx tsx ./src/seed.ts",
     "docker:dev": "docker compose -f docker-compose.dev.yaml up"
+  },
+  "prisma": {
+    "seed": "tsx src/seed.ts"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^2.1.1",
