@@ -16,7 +16,7 @@ RUN pnpm install
 COPY . .
 
 # Generate Prisma client
-RUN pnpx prisma generate
+RUN pnpm dlx prisma generate
 
 # Build the project
 RUN pnpm build
@@ -24,4 +24,5 @@ RUN pnpm build
 # Prune production dependencies
 RUN pnpm prune --production
 
-CMD ["node","build/index.js"]
+# Use the correct entry point for your built application
+CMD ["node", "build/index.js"]

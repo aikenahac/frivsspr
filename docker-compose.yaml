@@ -11,24 +11,27 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
     restart: on-failure
+
   app-migrate:
-    image: ghcr.io/aikenahac/frivsspr:master # Change tag if needed, currently support tags "master" and "beta"
+    image: ghcr.io/aikenahac/frivsspr:master
     container_name: app-migrate
     env_file:
       - stack.env
     depends_on:
       - db
-    command: prisma migrate deploy
+    command: ["npx", "prisma", "migrate", "deploy"]
+
   app-init:
-    image: ghcr.io/aikenahac/frivsspr:master # Change tag if needed, currently support tags "master" and "beta"
+    image: ghcr.io/aikenahac/frivsspr:master
     container_name: app-init
     env_file:
       - stack.env
     depends_on:
       - app-migrate
-    command: npx tsx src/seed.ts
+    command: ["node", "--loader", "tsx/esm", "src/seed.ts"]
+
   app:
-    image: ghcr.io/aikenahac/frivsspr:master # Change tag if needed, currently support tags "master" and "beta"
+    image: ghcr.io/aikenahac/frivsspr:master
     container_name: app
     env_file:
       - stack.env
@@ -39,8 +42,9 @@ services:
       - 3000:3000
       - 5555:5555
     restart: on-failure
+
   app-beta:
-    image: ghcr.io/aikenahac/frivsspr:master # Change tag if needed, currently support tags "master" and "beta"
+    image: ghcr.io/aikenahac/frivsspr:master
     container_name: app-beta
     env_file:
       - stack.env
