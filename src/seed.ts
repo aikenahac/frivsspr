@@ -1,4 +1,4 @@
-import { subjects } from './content.js';
+import { subjects } from './content';
 import { PrismaClient } from '@frivsspr-utils/prisma';
 
 const prisma = new PrismaClient();
