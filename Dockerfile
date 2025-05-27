@@ -6,7 +6,7 @@ RUN apk add --no-cache openssl
 WORKDIR /app
 
 # Copy only package files first for better caching
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml prisma ./
 
 # Install global and project dependencies
 RUN npm install -g pnpm
