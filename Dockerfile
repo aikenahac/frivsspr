@@ -27,4 +27,4 @@ RUN pnpm build
 RUN pnpm prune --production
 
 # Use the correct entry point for your built application
-CMD ["node", "build/index.js"]
+CMD ["node", "start.js"]
