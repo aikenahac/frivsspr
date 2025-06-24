@@ -22,7 +22,7 @@ if (existing.length === 0) {
         },
       });
     } catch (e) {
-      console.log(`Napaka pri ${s.name}`);
+      console.log(`Error at ${s.name} (${s.id})`);
     }
     loadCounter++;
     if (loadCounter === subjects.length) {
@@ -48,7 +48,7 @@ function connectRelatedAndPrerequisites() {
           },
         });
       } catch (e) {
-        console.log(`Napaka conn (pr): ${pr} -> ${s.name} (${s.id})`);
+        console.log(`Error conn (sub): ${pr} -> ${s.name} (${s.id})`);
       }
     });
 
@@ -67,7 +67,7 @@ function connectRelatedAndPrerequisites() {
           },
         });
       } catch (e) {
-        console.log(`Napaka conn (re): ${re} -> ${s.name} (${s.id})`);
+        console.log(`Error conn (re): ${re} -> ${s.name} (${s.id})`);
       }
     });
   });
