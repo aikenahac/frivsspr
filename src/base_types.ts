@@ -19,7 +19,7 @@ export interface SubjectLoad {
   code: string | null;
   points: number | null;
   type: SubjectTypeDB;
-  notTaught?: boolean;
+  notTaught?: boolean | null;
   semester: number;
 
   prerequisites?: number[];

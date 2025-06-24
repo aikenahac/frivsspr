@@ -154,7 +154,7 @@ export const subjects: SubjectLoad[] = [
     points: 6,
     type: SubjectTypeDB.Disciplinary,
     semester: 3,
-    related: [20, 33, 34],
+    related: [20, 33, 34, 57, 58, 59],
   },
   {
     id: 20,
@@ -163,7 +163,7 @@ export const subjects: SubjectLoad[] = [
     points: 6,
     type: SubjectTypeDB.Disciplinary,
     semester: 3,
-    related: [19, 33, 34],
+    related: [19, 33, 34, 57, 58, 59],
   },
   {
     id: 21,
@@ -279,7 +279,7 @@ export const subjects: SubjectLoad[] = [
     points: 6,
     type: SubjectTypeDB.Disciplinary,
     semester: 4,
-    related: [19, 20, 34],
+    related: [19, 20, 34, 57, 58, 59],
   },
   {
     id: 34,
@@ -289,7 +289,7 @@ export const subjects: SubjectLoad[] = [
     points: 6,
     type: SubjectTypeDB.Disciplinary,
     semester: 4,
-    related: [19, 20, 33],
+    related: [19, 20, 33, 57, 58, 59],
   },
   {
     id: 35,
@@ -488,4 +488,31 @@ export const subjects: SubjectLoad[] = [
     type: SubjectTypeDB.Mandatory,
     semester: 6,
   },
+  {
+    id: 57,
+    name: 'Človeški vidiki varnosti',
+    code: '63779',
+    points: 6,
+    type: SubjectTypeDB.Disciplinary,
+    semester: 5,
+    related: [19, 20, 33, 34],
+  },
+  {
+      id: 58,
+      name: 'Varnost sistemov',
+      code: '63780',
+      points: 6,
+      type: SubjectTypeDB.Directionary,
+      semester: 5,
+      related: [19, 20, 33, 34, 57, 59],
+    },
+    {
+      id: 59,
+      name: 'Razvoj in operacije - DevOps',
+      code: '63781',
+      points: 6,
+      type: SubjectTypeDB.Disciplinary,
+      semester: 5,
+      related: [19, 20, 33, 57, 58],
+    }
 ];

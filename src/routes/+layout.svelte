@@ -12,7 +12,7 @@
         <li><a href="/">Seznam</a></li>
         <li>
           <a
-            href="https://fri.uni-lj.si/upload/Slike/predmetniki/Predmetnik_RI_VSS_23_24_3.pdf"
+            href="https://www.fri.uni-lj.si/upload/Slike/predmetniki/2024_FRI_predmetnik_BVS_RI.pdf"
             target="_blank">Vizualni pregled</a
           >
         </li>
