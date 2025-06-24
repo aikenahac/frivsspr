@@ -284,7 +284,7 @@ export const subjects: SubjectLoad[] = [
   {
     id: 34,
 
-    name: 'Pravni vidiki varnosti',
+    name: 'Pravo in informacijske tehnologije',
     code: null,
     points: 6,
     type: SubjectTypeDB.Disciplinary,
@@ -423,7 +423,7 @@ export const subjects: SubjectLoad[] = [
     name: 'Programiranje energijsko omejenih naprav',
     code: '63776',
     points: 6,
-    type: SubjectTypeDB.Disciplinary,
+    type: SubjectTypeDB.Directionary,
     semester: 5,
   },
   {
