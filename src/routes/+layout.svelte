@@ -36,7 +36,7 @@
       <p>
         Pripravil <a
           class="text-info"
-          href="https://aikenahac.com"
+          href="https://aiken.si"
           target="_blank">Aiken T. Ahac</a
         >
       </p>
