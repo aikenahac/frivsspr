@@ -41,6 +41,9 @@
         >
       </p>
       <br />
+      <a href="/privacy-policy" class="text-[#D423C6]">
+        Privacy Policy
+      </a>
     </div>
   </div>
 </main>
