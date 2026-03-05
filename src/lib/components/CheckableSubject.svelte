@@ -6,6 +6,7 @@
 
   export let subject: CalculatorSubject;
   export let selectSubject: (subject: CalculatorSubject) => void;
+  export let isHighlightedPrerequisite = false;
 
   function customKT() {
     subject.points = zipScore;
@@ -59,7 +60,11 @@
         bind:checked={subject.isSelected}
         disabled={subject.type === SubjectTypeDB.Mandatory || subject.notTaught}
       />
-      <p class={`ml-2 ${getSubjectColor(subject.type)}`}>
+      <p
+        class={`ml-2 ${getSubjectColor(subject.type)} ${
+          isHighlightedPrerequisite ? 'font-bold scale-110 pl-2' : ''
+        }`}
+      >
         {subject.name}
         {subject.notTaught ? '(Se ne izvaja)' : ''}
       </p>
