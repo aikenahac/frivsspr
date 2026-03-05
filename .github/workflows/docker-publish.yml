@@ -11,7 +11,7 @@ name: Create and publish a Docker image
 
 on:
   push:
-    branches: ['master', 'beta']
+    branches: ['master']
   workflow_dispatch:
 
 concurrency:
