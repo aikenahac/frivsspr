@@ -17,14 +17,13 @@ COPY . .
 
 # Generate Prisma client
 RUN rm -rf node_modules/.prisma
-RUN pnpm dlx prisma generate --no-engine
-RUN pnpm dlx prisma generate
+RUN pnpm prisma generate
 
 # Build the project
 RUN pnpm build
 
 # Prune production dependencies
-RUN pnpm prune --production
+RUN pnpm prune --production --ignore-scripts
 
 # Use the correct entry point for your built application
 CMD ["node", "start.js"]
