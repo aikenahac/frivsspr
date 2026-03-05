@@ -19,11 +19,22 @@
   export let data: PageData;
   const subject = data.subject;
 
+  type CommentSortOption = 'date-desc' | 'date-asc';
+
   let rating: string | undefined = undefined;
   let hasVoted = true;
   let vote = 0;
   let voteCount: number;
   let comment = '';
+  let commentSort: CommentSortOption = 'date-desc';
+
+  $: sortedComments = [...(subject.comments ?? [])].sort((a, b) => {
+    if (commentSort === 'date-asc') {
+      return a.createdAt.localeCompare(b.createdAt);
+    }
+
+    return b.createdAt.localeCompare(a.createdAt);
+  });
 
   onMount(() => {
     const hv: boolean = JSON.parse(
@@ -205,8 +216,21 @@
     >
     <div class="divider" />
     <h2 class="font-['Klavila'] font-bold py-5 text-3xl">Komentarji</h2>
+    <div class="w-full max-w-xs mb-4">
+      <label class="label" for="comment-sort">
+        <span class="label-text">Razvrsti komentarje</span>
+      </label>
+      <select
+        id="comment-sort"
+        class="select select-bordered w-full"
+        bind:value={commentSort}
+      >
+        <option value="date-desc">Datum (najnovejši)</option>
+        <option value="date-asc">Datum (najstarejši)</option>
+      </select>
+    </div>
     <div class="flex flex-col items-center justify-start">
-      {#each subject.comments ?? [] as comment}
+      {#each sortedComments as comment}
         {#if comment.approved}
           <div class="card w-full bg-base-100 shadow-xl mb-2">
             <div class="card-body break-words">
