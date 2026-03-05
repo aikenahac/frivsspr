@@ -19,20 +19,17 @@
     .filter((subject) => studySemesters.includes(subject.semester))
     .map((subject) => ({ ...subject, isSelected: false }));
 
-  const subjectById = new Map(parsed.map((subject) => [subject.id, subject]));
+  let semesterIIISubjects: CalculatorSubject[] = [];
+  let semesterIVSubjects: CalculatorSubject[] = [];
+  let semesterVSubjects: CalculatorSubject[] = [];
+  let semesterVISubjects: CalculatorSubject[] = [];
 
-  const semesterIIISubjects: CalculatorSubject[] = parsed.filter(
-    (subject) => subject.semester === 3,
-  );
-  const semesterIVSubjects: CalculatorSubject[] = parsed.filter(
-    (subject) => subject.semester === 4,
-  );
-  const semesterVSubjects: CalculatorSubject[] = parsed.filter(
-    (subject) => subject.semester === 5,
-  );
-  const semesterVISubjects: CalculatorSubject[] = parsed.filter(
-    (subject) => subject.semester === 6,
-  );
+  $: subjectById = new Map(parsed.map((subject) => [subject.id, subject]));
+
+  $: semesterIIISubjects = parsed.filter((subject) => subject.semester === 3);
+  $: semesterIVSubjects = parsed.filter((subject) => subject.semester === 4);
+  $: semesterVSubjects = parsed.filter((subject) => subject.semester === 5);
+  $: semesterVISubjects = parsed.filter((subject) => subject.semester === 6);
 
   function loadMandatorySubjects() {
     parsed.forEach((subject) => {
@@ -87,6 +84,12 @@
       subject,
       missingSubjects: getMissingPrerequisites(subject),
     }),
+  );
+
+  $: missingPrerequisiteIds = new Set(
+    prerequisiteStatuses
+      .flatMap((status) => status.missingSubjects)
+      .map((subject) => subject.id),
   );
 
   $: hasAllPrerequisitesSelected = prerequisiteStatuses.every(
@@ -189,18 +192,34 @@
 
   <div class="divider">III. semester</div>
   {#each semesterIIISubjects as subject}
-    <CheckableSubject {subject} selectSubject={toggleSubject} />
+    <CheckableSubject
+      {subject}
+      selectSubject={toggleSubject}
+      isHighlightedPrerequisite={missingPrerequisiteIds.has(subject.id)}
+    />
   {/each}
   <div class="divider">IV. semester</div>
   {#each semesterIVSubjects as subject}
-    <CheckableSubject {subject} selectSubject={toggleSubject} />
+    <CheckableSubject
+      {subject}
+      selectSubject={toggleSubject}
+      isHighlightedPrerequisite={missingPrerequisiteIds.has(subject.id)}
+    />
   {/each}
   <div class="divider">V. semester</div>
   {#each semesterVSubjects as subject}
-    <CheckableSubject {subject} selectSubject={toggleSubject} />
+    <CheckableSubject
+      {subject}
+      selectSubject={toggleSubject}
+      isHighlightedPrerequisite={missingPrerequisiteIds.has(subject.id)}
+    />
   {/each}
   <div class="divider">VI. semester</div>
   {#each semesterVISubjects as subject}
-    <CheckableSubject {subject} selectSubject={toggleSubject} />
+    <CheckableSubject
+      {subject}
+      selectSubject={toggleSubject}
+      isHighlightedPrerequisite={missingPrerequisiteIds.has(subject.id)}
+    />
   {/each}
 </body>
