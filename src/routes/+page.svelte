@@ -86,14 +86,6 @@
   </p>
   <br/>
 
-  <div class="mb-4">
-    <a href="/calc/program"
-      ><button class="btn btn-secondary"
-        >Kalkulator (2. in 3. letnik) <img src={calcIcon} alt="Calculator icon" /></button
-      ></a
-    >
-  </div>
-
   <div>
     <h2 class="font-['Klavila'] font-bold py-5 text-2xl">1. letnik</h2>
     <ul>

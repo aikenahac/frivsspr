@@ -8,13 +8,16 @@
       <a class="btn btn-ghost normal-case text-xl" href="/">FRIVSŠPr</a>
     </div>
     <div class="flex-none">
-      <ul class="menu menu-horizontal px-1">
+      <ul class="flex flex-row items-center gap-6 p-4">
         <li><a href="/">Seznam</a></li>
         <li>
           <a
             href="https://cdn.aiken.si/2025_brosura_FRI_vss.pdf"
-            target="_blank">Vizualni pregled</a
+            target="_blank">Vizualno</a
           >
+        </li>
+        <li>
+          <a href="/calc/program"> <button class="btn btn-primary">Kalkulator</button></a>
         </li>
       </ul>
     </div>
@@ -34,16 +37,12 @@
         >
       </p>
       <p>
-        Pripravil <a
-          class="text-info"
-          href="https://aiken.si"
-          target="_blank">Aiken T. Ahac</a
+        Pripravil <a class="text-info" href="https://aiken.si" target="_blank"
+          >Aiken T. Ahac</a
         >
       </p>
       <br />
-      <a href="/privacy-policy" class="text-[#D423C6]">
-        Privacy Policy
-      </a>
+      <a href="/privacy-policy" class="text-[#D423C6]"> Privacy Policy </a>
     </div>
   </div>
 </main>
