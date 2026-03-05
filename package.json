@@ -3,21 +3,21 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "postinstall": "pnpm dlx prisma generate",
+    "postinstall": "prisma generate",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
     "format": "pnpm dlx prettier .",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "prisma:studio": "pnpm dlx prisma studio",
-    "prisma:generate": "pnpm dlx prisma generate",
-    "db:init": "pnpm dlx prisma migrate dev",
-    "db:seed": "pnpm dlx tsx ./src/seed.ts",
+    "prisma:studio": "prisma studio",
+    "prisma:generate": "prisma generate",
+    "db:init": "prisma migrate dev",
+    "db:seed": "tsx ./src/seed.ts",
     "docker:dev": "docker compose -f docker-compose.dev.yaml up"
   },
   "prisma": {
-    "seed": "pnpm dlx tsx src/seed.ts"
+    "seed": "tsx src/seed.ts"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^2.1.1",

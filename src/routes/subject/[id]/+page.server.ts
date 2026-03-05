@@ -15,6 +15,9 @@ export const load: PageServerLoad = async ({ params }) => {
         where: {
           approved: true,
         },
+        orderBy: {
+          createdAt: 'desc',
+        },
       },
     },
   });
