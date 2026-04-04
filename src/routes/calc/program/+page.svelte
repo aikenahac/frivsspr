@@ -111,28 +111,28 @@
   <div class="grid grid-cols-2 gap-4">
     <div class="flex flex-column items-center">
       <div class="avatar">
-        <div class="bg-base-content rounded-full w-12" />
+        <div class="bg-base-content rounded-full w-12 mr-2 sm:mr-0" />
       </div>
       <div class="divider lg:divider-horizontal" />
       <p>{SubjectType.Mandatory}</p>
     </div>
     <div class="flex flex-column items-center">
       <div class="avatar">
-        <div class="bg-warning rounded-full w-12" />
+        <div class="bg-warning rounded-full w-12 mr-2 sm:mr-0" />
       </div>
       <div class="divider lg:divider-horizontal" />
       <p>{SubjectType.Disciplinary}</p>
     </div>
     <div class="flex flex-column items-center">
       <div class="avatar">
-        <div class="bg-info rounded-full w-12" />
+        <div class="bg-info rounded-full w-12 mr-2 sm:mr-0" />
       </div>
       <div class="divider lg:divider-horizontal" />
       <p>{SubjectType.Directionary}</p>
     </div>
     <div class="flex flex-column items-center">
       <div class="avatar">
-        <div class="bg-success rounded-full w-12" />
+        <div class="bg-success rounded-full w-12 mr-2 sm:mr-0" />
       </div>
       <div class="divider lg:divider-horizontal" />
       <p>{SubjectType.Common}</p>
