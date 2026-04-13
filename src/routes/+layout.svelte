@@ -1,5 +1,6 @@
 <script lang="ts">
   import '../app.postcss';
+  import calcIcon from '$lib/assets/calc.svg';
 </script>
 
 <main>
@@ -17,7 +18,12 @@
           >
         </li>
         <li>
-          <a href="/calc/program"> <button class="btn btn-primary">Kalkulator</button></a>
+          <a href="/calc/program" class="btn btn-primary" aria-label="Kalkulator">
+            <span class="sm:hidden">
+              <img src={calcIcon} alt="" class="h-5 w-5" />
+            </span>
+            <span class="hidden sm:inline">Kalkulator</span>
+          </a>
         </li>
       </ul>
     </div>
