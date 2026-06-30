@@ -343,7 +343,7 @@ export const subjects: SubjectLoad[] = [
     code: '63766a',
     points: 3,
     type: SubjectTypeDB.Disciplinary,
-    notTaught: true,
+    notTaught: false,
     semester: 4,
   },
   {
